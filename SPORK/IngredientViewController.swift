@@ -89,12 +89,21 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
     func didReceiveRecipeInfo(listOfRecipeInfo: [RecipeInfo])
     {
         //FIXME: need to write code to conform to protocol
+        for aRecipeInfo in listOfRecipeInfo
+        {
+            print("GOT A RECIPE")
+            print(aRecipeInfo.title)
+            print(aRecipeInfo.ingredients)
+            print(aRecipeInfo.href)
+            print(aRecipeInfo.thumbnail)
+        }
     }
     
     @IBAction func recipeButtonWasTapped(_ sender: UIButton)
     {
         api = RecipePuppyAPIManager(delegate: self)
         api.searchRPFor(listOfIngredients: ingredients)
+    
     }
 
     

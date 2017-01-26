@@ -25,24 +25,18 @@ class RecipeInfo
     }
     
     
-    static func getRecipeInfoWithJSON(_ results: [String: Any]) -> [RecipeInfo]
+    static func getRecipeInfoWithJSON(_ results: [[String: Any]]) -> [RecipeInfo]
     {
        var listOfRecipes = [RecipeInfo]()
         
         for result in results
         {
-            if let dictionary = result as? [String: Any]
-            {
-                let recipeTitle = dictionary["title"] as? String
-                let recipeUrl = dictionary["href"] as? String
-                let recipeIngredients = dictionary["ingredients"] as? String
-                let recipeImage = dictionary["thumbnail"] as? String ?? ""
-                listOfRecipes.append(RecipeInfo(recipeTitle: recipeTitle!, recipeUrl: recipeUrl!, recipeIngredients: recipeIngredients!, recipeImage: recipeImage))
-                
-            }
-            
-            
-            
+            let dictionary = result as [String: Any]
+            let recipeTitle = dictionary["title"] as? String
+            let recipeUrl = dictionary["href"] as? String
+            let recipeIngredients = dictionary["ingredients"] as? String
+            let recipeImage = dictionary["thumbnail"] as? String ?? ""
+            listOfRecipes.append(RecipeInfo(recipeTitle: recipeTitle!, recipeUrl: recipeUrl!, recipeIngredients: recipeIngredients!, recipeImage: recipeImage))
         }
         return listOfRecipes
     }

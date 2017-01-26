@@ -27,16 +27,16 @@ class RecipePuppyAPIManager
     {
         var recipes = [RecipeInfo]()
         //var listOfIngredients = [Ingredient]()
-        var data = ""
+        var apiData = ""
         
         for i in listOfIngredients
         {
-            data = data + "\(i.name!)" + ","
+            apiData = apiData + "\(i.name!)" + ","
         }
         
         // loop through listOfIngredients and add each to data with comma's 
         
-        let urlPath = "http://www.recipepuppy.com/api/?i=\(data)&p=1"
+        let urlPath = "http://www.recipepuppy.com/api/?i=\(apiData)&p=1"
         let url = URL(string: urlPath)
         let session = URLSession.shared
         
@@ -52,7 +52,7 @@ class RecipePuppyAPIManager
                 // call function from the recipe info class
                 if let results = dictionary["results"] as? [[String: Any]]
                     {
-                        RecipeInfo.getRecipeInfoWithJSON(results as! [String: Any])
+                        recipes = RecipeInfo.getRecipeInfoWithJSON(results)
                     self.delegate.didReceiveRecipeInfo(listOfRecipeInfo: recipes)
                     }
             }
