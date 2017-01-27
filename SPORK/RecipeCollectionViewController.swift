@@ -10,10 +10,11 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class RecipeCollectionViewController: UICollectionViewController
+class RecipeCollectionViewController: UICollectionViewController, RecipePuppyAPIManagerProtocol
 {
 
     var listOfRecipes = [RecipeInfo]()
+     var api: RecipePuppyAPIManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,20 @@ class RecipeCollectionViewController: UICollectionViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func didReceiveRecipeInfo(listOfRecipeInfo: [RecipeInfo])
+    {
+        //FIXME: need to write code to conform to protocol
+        for aRecipeInfo in listOfRecipeInfo
+        {
+            print("GOT A RECIPE")
+            print(aRecipeInfo.title)
+            print(aRecipeInfo.ingredients)
+            print(aRecipeInfo.href)
+            print(aRecipeInfo.thumbnail)
+        }
+    }
+
 
     /*
     // MARK: - Navigation

@@ -78,6 +78,7 @@
 			children = (
 				2C44F87B1E37D1C60063B34E /* Ingredient.swift */,
 				2C44F8861E3A4EBA0063B34E /* RecipeImageCell.swift */,
+				2C44F8771E37B90E0063B34E /* IngredientTableViewCell.swift */,
 				2C44F8821E383B5D0063B34E /* RecipeInfo.swift */,
 				2C44F87E1E38322C0063B34E /* RecipePuppyAPIManager.swift */,
 			);
@@ -110,7 +111,6 @@
 				2C44F87D1E37D7550063B34E /* ModelClass */,
 				2CF2A7C31E36E0F200A8C5DC /* ViewControllers */,
 				2CF2A7AC1E36D3BF00A8C5DC /* Main.storyboard */,
-				2C44F8771E37B90E0063B34E /* IngredientTableViewCell.swift */,
 				2CF2A7BD1E36D49E00A8C5DC /* SoupImage.JPG */,
 				2CF2A7B21E36D3BF00A8C5DC /* Assets.xcassets */,
 				2CF2A7B41E36D3BF00A8C5DC /* LaunchScreen.storyboard */,

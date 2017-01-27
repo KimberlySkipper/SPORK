@@ -184,6 +184,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpA-sL-vtz">
+                                <rect key="frame" x="20" y="617" width="105" height="30"/>
+                                <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Recipes">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recipeButtonWasTapped:" destination="khj-Au-R0x" eventType="touchUpInside" id="Wli-Vw-WQb"/>
+                                    <segue destination="0ja-1p-TZv" kind="show" identifier="GetRecipeSeque" id="Hgf-JF-X6M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qso-WV-b13">
+                                <rect key="frame" x="250" y="617" width="89" height="30"/>
+                                <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit List"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-hd-OLx">
+                                <rect key="frame" x="135" y="617" width="105" height="30"/>
+                                <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Groceries"/>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRh-9g-9YS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -221,27 +242,6 @@
                                     <outlet property="delegate" destination="khj-Au-R0x" id="ZY5-zQ-0XO"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpA-sL-vtz">
-                                <rect key="frame" x="20" y="617" width="105" height="30"/>
-                                <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Recipes">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="recipeButtonWasTapped:" destination="khj-Au-R0x" eventType="touchUpInside" id="Wli-Vw-WQb"/>
-                                    <segue destination="0ja-1p-TZv" kind="show" identifier="GetRecipeSeque" id="Hgf-JF-X6M"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qso-WV-b13">
-                                <rect key="frame" x="250" y="617" width="89" height="30"/>
-                                <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Edit List"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-hd-OLx">
-                                <rect key="frame" x="135" y="617" width="105" height="30"/>
-                                <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Groceries"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -286,19 +286,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wdE-d8-5DY">
-                            <size key="itemSize" width="180" height="135"/>
+                            <size key="itemSize" width="120" height="80"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="t0v-kx-iXV">
-                                <rect key="frame" x="0.0" y="0.0" width="180" height="135"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="t0v-kx-iXV" customClass="RecipeImageCell" customModule="SPORK" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="180" height="135"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STg-Eb-uGB">
+                                            <rect key="frame" x="8" y="51" width="104" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="STg-Eb-uGB" secondAttribute="trailing" constant="8" id="3K1-8h-inR"/>
+                                    <constraint firstItem="STg-Eb-uGB" firstAttribute="leading" secondItem="t0v-kx-iXV" secondAttribute="leading" constant="8" id="4Ip-Ah-CCW"/>
+                                    <constraint firstAttribute="bottom" secondItem="STg-Eb-uGB" secondAttribute="bottom" constant="8" id="O53-K0-JhY"/>
+                                    <constraint firstItem="STg-Eb-uGB" firstAttribute="centerX" secondItem="t0v-kx-iXV" secondAttribute="centerX" id="p8Y-5X-0Af"/>
+                                </constraints>
+                                <size key="customSize" width="120" height="80"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
