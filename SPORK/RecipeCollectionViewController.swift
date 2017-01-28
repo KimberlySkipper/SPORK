@@ -147,5 +147,19 @@ class RecipeCollectionViewController: UICollectionViewController, RecipePuppyAPI
     
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "DetailViewSegue"
+        {
+            // Get the new view controller using segue.destinationViewController.
+            let detailVC = segue.destination as! RecipeDetailViewController
+            let cell = sender as! RecipeImageCell
+            let indexPath = collectionView?.indexPath(for: cell)!
+            let oneRecipe = listOfRecipes[(indexPath?.row)!]
+            detailVC.myRecipe = oneRecipe
+        }
+        
+    }
 
 }
