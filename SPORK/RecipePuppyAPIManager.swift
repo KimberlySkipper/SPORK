@@ -28,13 +28,32 @@ class RecipePuppyAPIManager
         var recipes = [RecipeInfo]()
         //var listOfIngredients = [Ingredient]()
         var apiData = ""
+        let encodedName = apiData.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
         
         for i in listOfIngredients
         {
-            apiData = apiData + "\(i.name!)" + ","
+            
+
+            apiData = encodedName! + "\(i.name!)" + ","
         }
+        //extension String {
+       // func removingWhitespaces() -> String {
+        //    return components(separatedBy: .whitespaces).joined()
+       // }
+   // }
+        //OR
+        //let string = "Hello World!"
+        //let formattedString = string.replacingOccurrences(of: " ", with: "")
         
         // loop through listOfIngredients and add each to data with comma's 
+        
+       // let itunesSearchTerm = searchTerm.replacingOccurrences(of: " ", with: "+", options: NSString.CompareOptions.caseInsensitive, range: nil)
+        
+       // if let escapedSearchTerm = itunesSearchTerm.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
+       // {
+            //url directly from iTunes API Documentation.
+         //   let urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
+
         
         let urlPath = "http://www.recipepuppy.com/api/?i=\(apiData)&p=1"
         let url = URL(string: urlPath)

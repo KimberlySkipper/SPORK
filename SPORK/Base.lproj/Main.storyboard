@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -185,7 +184,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpA-sL-vtz">
-                                <rect key="frame" x="20" y="617" width="105" height="30"/>
+                                <rect key="frame" x="10" y="617" width="105" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Recipes">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -196,17 +195,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qso-WV-b13">
-                                <rect key="frame" x="250" y="617" width="89" height="30"/>
+                                <rect key="frame" x="260" y="617" width="105" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Edit List"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-hd-OLx">
-                                <rect key="frame" x="135" y="617" width="105" height="30"/>
-                                <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Groceries"/>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRh-9g-9YS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="545"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IngredientCell" id="f73-r1-EGs" customClass="IngredientTableViewCell" customModule="SPORK" customModuleProvider="target">
@@ -242,23 +236,29 @@
                                     <outlet property="delegate" destination="khj-Au-R0x" id="ZY5-zQ-0XO"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-hd-OLx">
+                                <rect key="frame" x="135" y="617" width="105" height="30"/>
+                                <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Groceries"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HpA-sL-vtz" firstAttribute="leading" secondItem="yNZ-TI-FzM" secondAttribute="leading" constant="20" id="4GI-Ft-f2C"/>
-                            <constraint firstItem="UPq-hd-OLx" firstAttribute="leading" secondItem="HpA-sL-vtz" secondAttribute="trailing" constant="10" id="7JX-wx-RfC"/>
-                            <constraint firstItem="HpA-sL-vtz" firstAttribute="width" secondItem="UPq-hd-OLx" secondAttribute="width" id="EQb-rD-RU7"/>
-                            <constraint firstItem="0By-y2-OFL" firstAttribute="top" secondItem="UPq-hd-OLx" secondAttribute="bottom" constant="20" id="HXb-P9-NRC"/>
-                            <constraint firstItem="UPq-hd-OLx" firstAttribute="centerX" secondItem="MRh-9g-9YS" secondAttribute="centerX" id="OiE-J6-obh"/>
-                            <constraint firstItem="HpA-sL-vtz" firstAttribute="centerY" secondItem="UPq-hd-OLx" secondAttribute="centerY" id="R7R-S1-WJe"/>
-                            <constraint firstAttribute="trailing" secondItem="MRh-9g-9YS" secondAttribute="trailing" id="Sdy-tT-ZOf"/>
-                            <constraint firstItem="qso-WV-b13" firstAttribute="leading" secondItem="UPq-hd-OLx" secondAttribute="trailing" constant="10" id="ShQ-Ds-wAm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qso-WV-b13" secondAttribute="trailing" constant="20" id="b4B-aa-nyk"/>
-                            <constraint firstItem="qso-WV-b13" firstAttribute="centerY" secondItem="UPq-hd-OLx" secondAttribute="centerY" id="gA8-LJ-nbw"/>
-                            <constraint firstItem="MRh-9g-9YS" firstAttribute="top" secondItem="yNZ-TI-FzM" secondAttribute="top" id="hjH-V7-el0"/>
-                            <constraint firstItem="MRh-9g-9YS" firstAttribute="leading" secondItem="yNZ-TI-FzM" secondAttribute="leading" id="pEi-r4-gjg"/>
-                            <constraint firstItem="UPq-hd-OLx" firstAttribute="top" secondItem="MRh-9g-9YS" secondAttribute="bottom" constant="8" id="xK5-4N-Wfj"/>
-                            <constraint firstItem="HpA-sL-vtz" firstAttribute="height" secondItem="UPq-hd-OLx" secondAttribute="height" id="yx0-iQ-mkB"/>
+                            <constraint firstItem="HpA-sL-vtz" firstAttribute="centerY" secondItem="UPq-hd-OLx" secondAttribute="centerY" id="59o-Zr-BCt"/>
+                            <constraint firstItem="0By-y2-OFL" firstAttribute="top" secondItem="UPq-hd-OLx" secondAttribute="bottom" constant="20" id="8Fh-QM-WqZ"/>
+                            <constraint firstItem="HpA-sL-vtz" firstAttribute="width" secondItem="UPq-hd-OLx" secondAttribute="width" id="Bxg-eU-lJZ"/>
+                            <constraint firstItem="qso-WV-b13" firstAttribute="leading" secondItem="UPq-hd-OLx" secondAttribute="trailing" constant="20" id="OsR-zI-W4e"/>
+                            <constraint firstItem="qso-WV-b13" firstAttribute="height" secondItem="UPq-hd-OLx" secondAttribute="height" id="P0k-yE-19V"/>
+                            <constraint firstItem="UPq-hd-OLx" firstAttribute="top" secondItem="MRh-9g-9YS" secondAttribute="bottom" constant="8" id="PPy-YP-clX"/>
+                            <constraint firstItem="HpA-sL-vtz" firstAttribute="height" secondItem="UPq-hd-OLx" secondAttribute="height" id="QKJ-xG-Iqg"/>
+                            <constraint firstItem="qso-WV-b13" firstAttribute="width" secondItem="UPq-hd-OLx" secondAttribute="width" id="Yxa-HI-M41"/>
+                            <constraint firstItem="MRh-9g-9YS" firstAttribute="leading" secondItem="yNZ-TI-FzM" secondAttribute="leading" id="Z6o-sz-gQp"/>
+                            <constraint firstItem="HpA-sL-vtz" firstAttribute="leading" secondItem="yNZ-TI-FzM" secondAttribute="leading" constant="10" id="i4Y-RG-Wiu"/>
+                            <constraint firstItem="qso-WV-b13" firstAttribute="centerY" secondItem="UPq-hd-OLx" secondAttribute="centerY" id="kLt-kz-CCF"/>
+                            <constraint firstItem="MRh-9g-9YS" firstAttribute="top" secondItem="YWH-0y-vZd" secondAttribute="bottom" id="pA4-CZ-xUr"/>
+                            <constraint firstAttribute="trailing" secondItem="qso-WV-b13" secondAttribute="trailing" constant="10" id="qU5-ni-vYf"/>
+                            <constraint firstAttribute="trailing" secondItem="MRh-9g-9YS" secondAttribute="trailing" id="sKC-xN-g5C"/>
+                            <constraint firstItem="UPq-hd-OLx" firstAttribute="leading" secondItem="HpA-sL-vtz" secondAttribute="trailing" constant="20" id="wdd-VN-0rF"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -281,7 +281,7 @@
         <scene sceneID="0DC-ka-IiD">
             <objects>
                 <collectionViewController id="0ja-1p-TZv" customClass="RecipeCollectionViewController" customModule="SPORK" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="yDB-cQ-0z7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="yDB-cQ-0z7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -299,6 +299,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iv7-z3-7f6">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STg-Eb-uGB">
                                             <rect key="frame" x="8" y="51" width="104" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -315,6 +319,10 @@
                                     <constraint firstItem="STg-Eb-uGB" firstAttribute="centerX" secondItem="t0v-kx-iXV" secondAttribute="centerX" id="p8Y-5X-0Af"/>
                                 </constraints>
                                 <size key="customSize" width="120" height="80"/>
+                                <connections>
+                                    <outlet property="recipeThumbnail" destination="iv7-z3-7f6" id="G8z-HP-xv0"/>
+                                    <outlet property="recipeTitleLabel" destination="STg-Eb-uGB" id="RL5-KQ-HbF"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -332,7 +340,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rK1-1d-Ja6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gcd-s3-brD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gcd-s3-brD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>

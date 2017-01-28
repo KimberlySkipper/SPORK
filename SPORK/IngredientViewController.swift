@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class IngredientViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate
 {
     @IBOutlet weak var tableView: UITableView!
@@ -16,33 +18,35 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
     var api: RecipePuppyAPIManager!
     
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         title = "Ingredients"
-        
-        
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     //MARK: - table view data source
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of rows
         return ingredients.count
     }
     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath) as! IngredientTableViewCell
         let aGroceryItem = ingredients[indexPath.row]
         if aGroceryItem.name == nil
@@ -89,20 +93,22 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
         
     @IBAction func recipeButtonWasTapped(_ sender: UIButton)
     {
-        api = RecipePuppyAPIManager(delegate: RecipeCollectionViewController.self as! RecipePuppyAPIManagerProtocol)
-        api.searchRPFor(listOfIngredients: ingredients)
+        //api = RecipePuppyAPIManager(delegate: RecipeCollectionViewController.self as! RecipePuppyAPIManagerProtocol)
+        //api.searchRPFor(listOfIngredients: ingredients)
     
     }
-
-    
 
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let controller = segue.destination as! RecipeCollectionViewController
+        api = RecipePuppyAPIManager(delegate: controller as RecipePuppyAPIManagerProtocol)
+        api.searchRPFor(listOfIngredients: ingredients)
     }
     
 

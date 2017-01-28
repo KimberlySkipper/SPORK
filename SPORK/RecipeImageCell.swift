@@ -11,6 +11,6 @@ import UIKit
 
 class RecipeImageCell: UICollectionViewCell
 {
-    @IBOutlet weak var recipeThumbnail: UIImage!
-    @IBOutlet weak var recipeTitleTextView: UITextView!
+    @IBOutlet weak var recipeThumbnail: UIImageView!
+    @IBOutlet weak var recipeTitleLabel: UILabel!
 }

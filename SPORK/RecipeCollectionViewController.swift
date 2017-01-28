@@ -10,6 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
+
 class RecipeCollectionViewController: UICollectionViewController, RecipePuppyAPIManagerProtocol
 {
 
@@ -38,11 +39,17 @@ class RecipeCollectionViewController: UICollectionViewController, RecipePuppyAPI
         //FIXME: need to write code to conform to protocol
         for aRecipeInfo in listOfRecipeInfo
         {
-            print("GOT A RECIPE")
-            print(aRecipeInfo.title)
-            print(aRecipeInfo.ingredients)
-            print(aRecipeInfo.href)
-            print(aRecipeInfo.thumbnail)
+            listOfRecipes = listOfRecipeInfo
+            //print("GOT A RECIPE")
+            //print(aRecipeInfo.title)
+            //print(aRecipeInfo.ingredients)
+            //print(aRecipeInfo.href)
+            //print(aRecipeInfo.thumbnail)
+            func reload()
+            {
+                self.collectionView?.reloadData()
+            }
+            DispatchQueue.main.async(execute: reload)
         }
     }
 
@@ -62,7 +69,7 @@ class RecipeCollectionViewController: UICollectionViewController, RecipePuppyAPI
     override func numberOfSections(in collectionView: UICollectionView) -> Int
     {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
@@ -74,11 +81,40 @@ class RecipeCollectionViewController: UICollectionViewController, RecipePuppyAPI
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! RecipeImageCell
+        cell.backgroundColor = UIColor.white
+        
+        load_image(urlString: listOfRecipes[indexPath.row].thumbnail,imageView: cell.recipeThumbnail)
+        cell.recipeTitleLabel.text = listOfRecipes[indexPath.row].title
+       
         // Configure the cell
-    
         return cell
+    }
+    
+    //This function was largely copied from this VERY helpful internet post.  Please go visit them here: http://swiftdeveloperblog.com/code-examples/uiimageview-and-uiimage-load-image-from-remote-url/ After many tries, this finally loaded my images in the proper threads.  Thank you.
+    
+    func load_image(urlString: String?, imageView: UIImageView)
+    {
+        if(urlString == nil)
+        {
+            return;
+        }
+        let imageURL:URL = URL(string: (urlString)!)!
+        // Start background thread so that image loading does not make app unresponsive
+        DispatchQueue.global(qos: .userInitiated).async
+            {
+                let imageData: NSData = NSData(contentsOf:imageURL)!
+//                let imageView = UIImageView(frame: CGRect(x:0, y:0, width:200, height:200))
+//                let imageView.center = self.view.center
+                
+                // When from background thread, UI needs to be updated on main_queue
+                DispatchQueue.main.async {
+                    let image = UIImage(data: imageData as Data)
+                    imageView.image = image
+//                    imageView.contentMode = UIViewContentMode.scaleAspectFit
+//                    self.view.addSubview(imageView)
+                }
+        }
     }
 
     // MARK: UICollectionViewDelegate
