@@ -15,6 +15,8 @@ class RecipeInfo
     let href: String
     let ingredients: String
     let thumbnail: String
+  
+    
     //how it is created
     init(recipeTitle: String, recipeUrl: String, recipeIngredients: String, recipeImage: String)
     {
@@ -22,6 +24,7 @@ class RecipeInfo
         self.href = recipeUrl
         self.ingredients = recipeIngredients
         self.thumbnail = recipeImage
+        
     }
     
     

@@ -158,6 +158,7 @@ class RecipeCollectionViewController: UICollectionViewController, RecipePuppyAPI
             let indexPath = collectionView?.indexPath(for: cell)!
             let oneRecipe = listOfRecipes[(indexPath?.row)!]
             detailVC.myRecipe = oneRecipe
+            detailVC.uiImage = cell.recipeThumbnail.image
         }
         
     }

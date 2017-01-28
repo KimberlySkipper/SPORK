@@ -23,6 +23,10 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     var myRecipe: RecipeInfo?
     var ingredientsFromAPI = [Ingredient]()
+   // var recipeIngredientList: [String]? = ingredient.componentsSepatedBy String(" ")
+
+    var uiImage: UIImage?
+    
     
     
     
@@ -32,8 +36,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         title = "Recipe"
         
         recipeNameLabel.text = myRecipe?.title
-       // recipeImage.image = UIImage(named: (myRecipe?.thumbnail)!)
-        
+        recipeImage.image = uiImage
+       // var ingredientsFromAPI: String = recipeIngredientList?.count
         
         
      //   recipeImage.image = UIImage(contentsOfFile: String)
@@ -44,7 +48,8 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func didTapLink(_ sender: UIButton)
     {
-        if let url = (NSURL(string: (myRecipe?.href)!) as? URL) {
+        if let url = (NSURL(string: (myRecipe?.href)!) as? URL)
+        {
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil )}
         
         
