@@ -16,18 +16,14 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var addGroceriesButton: UIButton!
-
     @IBOutlet weak var urlLinkButton: UIButton!
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var ingredientListTableView: UITableView!
     
     var myRecipe: RecipeInfo?
-    var ingredientsFromAPI = [Ingredient]()
+    var ingredientsFromAPI: [String]?
    // var recipeIngredientList: [String]? = ingredient.componentsSepatedBy String(" ")
-
     var uiImage: UIImage?
-    
-    
     
     
     override func viewDidLoad()
@@ -37,30 +33,25 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         recipeNameLabel.text = myRecipe?.title
         recipeImage.image = uiImage
-       // var ingredientsFromAPI: String = recipeIngredientList?.count
         
-        
-     //   recipeImage.image = UIImage(contentsOfFile: String)
-
-        urlLinkButton.addTarget(self, action: Selector(("didTapLink")), for: .touchUpInside)
-        
+        ingredientsFromAPI = (myRecipe?.ingredients.components(separatedBy: ","))!
     }
     
     @IBAction func didTapLink(_ sender: UIButton)
     {
-        if let url = (NSURL(string: (myRecipe?.href)!) as? URL)
+        // fix for craft recipies
+        let kraftFixed = myRecipe?.href.replacingOccurrences(of: "kraftfoods", with: "kraftrecipes")
+        if let url = (NSURL(string: (kraftFixed)!) as? URL)
         {
+            print(myRecipe?.href ?? "OH NO!")
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil )}
-        
-        
-        
-    }
+        }
     
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     
@@ -68,23 +59,23 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     
     func numberOfSections(in tableView: UITableView) -> Int
     {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        // #warning Incomplete implementation, return the number of rows
-        return ingredientsFromAPI.count
+        return ingredientsFromAPI!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath)
         
-        let ingredient = ingredientsFromAPI[indexPath.row]
-        cell.textLabel?.text = ingredient.name
+        //let ingredient = ingredientsFromAPI[indexPath.row]
+        //cell.textLabel?.text = ingredient.name
         
+        cell.textLabel?.text = ingredientsFromAPI?[indexPath.row]
         return cell
         
     }
