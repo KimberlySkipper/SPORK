@@ -1,0 +1,15 @@
+{
+user:{
+    email: ""
+    }
+
+recipe info:{
+  title: ""
+  href:""
+  thumbnail:""
+  ingredients: {
+              name: ""
+              done: "bool"
+  }
+}
+}

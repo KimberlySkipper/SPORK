@@ -11,6 +11,7 @@ import Foundation
 class Ingredient
 {
     var name: String?
+    var done: Bool?
     
     init ()
     {}
@@ -18,6 +19,23 @@ class Ingredient
     init(ingredient: String)
     {
         self.name = ingredient
+    }
+    // make function to change the string array(from ingrediants in the RecipeInfo object) to object array
+    static func changeArrayOfStringsToArrayOfIngredientObjects(oldStringArray:[String]) -> [Ingredient]
+    {
+        var ingredientArray = [Ingredient]()
+        
+        for aString in oldStringArray
+        {
+            let anIngredient = Ingredient()
+            anIngredient.done = false
+            anIngredient.name = aString
+
+             ingredientArray.append(anIngredient)
+            
+        }
+        return ingredientArray
+        
     }
     
     

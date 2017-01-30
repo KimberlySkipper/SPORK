@@ -11,11 +11,11 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 
-class RecipeCollectionViewController: UICollectionViewController, RecipePuppyAPIManagerProtocol
+class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManagerProtocol
 {
 
     var listOfRecipes = [RecipeInfo]()
-     var api: RecipePuppyAPIManager!
+     var api: EdamamAPIManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -22,14 +22,23 @@ class MenuViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "ShowShoppingListSegue"
+        {
+            segue.destination as! ShoppingListViewController
+        }
+        
         // Pass the selected object to the new view controller.
     }
-    */
 
-}
+    @IBAction func fromShoppingListToMenu(segue: UIStoryboardSegue)
+    {
+        //no code necessary, but can add funtionality if needed.
+    }
+
+}// end class

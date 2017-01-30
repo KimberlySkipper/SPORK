@@ -21,7 +21,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var ingredientListTableView: UITableView!
     
     var myRecipe: RecipeInfo?
-    var ingredientsFromAPI: [String]?
+    var ingredientsFromAPI: [Ingredient]?
    // var recipeIngredientList: [String]? = ingredient.componentsSepatedBy String(" ")
     var uiImage: UIImage?
     
@@ -34,7 +34,7 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
         recipeNameLabel.text = myRecipe?.title
         recipeImage.image = uiImage
         
-        ingredientsFromAPI = (myRecipe?.ingredients.components(separatedBy: ","))!
+        ingredientsFromAPI = (myRecipe?.ingredients)!
     }
     
     @IBAction func didTapLink(_ sender: UIButton)
@@ -71,25 +71,21 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath)
-        
-        //let ingredient = ingredientsFromAPI[indexPath.row]
-        //cell.textLabel?.text = ingredient.name
-        
-        cell.textLabel?.text = ingredientsFromAPI?[indexPath.row]
+        cell.textLabel?.text = ingredientsFromAPI?[indexPath.row].name
         return cell
         
     }
 
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let shopVC = segue.destination as! ShoppingListViewController
+        shopVC.shoppingItems.append(myRecipe!)
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

@@ -15,6 +15,9 @@
 		2C44F8851E395E460063B34E /* RecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F8841E395E460063B34E /* RecipeCollectionViewController.swift */; };
 		2C44F8871E3A4EBA0063B34E /* RecipeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F8861E3A4EBA0063B34E /* RecipeImageCell.swift */; };
 		2C7D2EA21E3CFF0800BBCA7B /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D2EA11E3CFF0800BBCA7B /* RecipeDetailViewController.swift */; };
+		2C7D2EA41E3D7A9D00BBCA7B /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D2EA31E3D7A9D00BBCA7B /* ShoppingListViewController.swift */; };
+		2C7D2EA81E3D88A300BBCA7B /* EdamamAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D2EA71E3D88A300BBCA7B /* EdamamAPIManager.swift */; };
+		2C7D2EAC1E3E701F00BBCA7B /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D2EAB1E3E701F00BBCA7B /* ShoppingTableViewCell.swift */; };
 		2CF2A7A91E36D3BF00A8C5DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2A7A81E36D3BF00A8C5DC /* AppDelegate.swift */; };
 		2CF2A7AB1E36D3BF00A8C5DC /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2A7AA1E36D3BF00A8C5DC /* LogInViewController.swift */; };
 		2CF2A7AE1E36D3BF00A8C5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF2A7AC1E36D3BF00A8C5DC /* Main.storyboard */; };
@@ -37,6 +40,9 @@
 		2C44F8841E395E460063B34E /* RecipeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewController.swift; sourceTree = "<group>"; };
 		2C44F8861E3A4EBA0063B34E /* RecipeImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeImageCell.swift; sourceTree = "<group>"; };
 		2C7D2EA11E3CFF0800BBCA7B /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		2C7D2EA31E3D7A9D00BBCA7B /* ShoppingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		2C7D2EA71E3D88A300BBCA7B /* EdamamAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdamamAPIManager.swift; sourceTree = "<group>"; };
+		2C7D2EAB1E3E701F00BBCA7B /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
 		2CF2A7A51E36D3BF00A8C5DC /* SPORK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPORK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF2A7A81E36D3BF00A8C5DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF2A7AA1E36D3BF00A8C5DC /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -78,11 +84,13 @@
 		2C44F87D1E37D7550063B34E /* ModelClass */ = {
 			isa = PBXGroup;
 			children = (
-				2C44F87B1E37D1C60063B34E /* Ingredient.swift */,
-				2C44F8861E3A4EBA0063B34E /* RecipeImageCell.swift */,
 				2C44F8771E37B90E0063B34E /* IngredientTableViewCell.swift */,
+				2C44F8861E3A4EBA0063B34E /* RecipeImageCell.swift */,
+				2C7D2EAB1E3E701F00BBCA7B /* ShoppingTableViewCell.swift */,
+				2C44F87B1E37D1C60063B34E /* Ingredient.swift */,
 				2C44F8821E383B5D0063B34E /* RecipeInfo.swift */,
 				2C44F87E1E38322C0063B34E /* RecipePuppyAPIManager.swift */,
+				2C7D2EA71E3D88A300BBCA7B /* EdamamAPIManager.swift */,
 			);
 			name = ModelClass;
 			sourceTree = "<group>";
@@ -113,9 +121,9 @@
 				2C44F87D1E37D7550063B34E /* ModelClass */,
 				2CF2A7C31E36E0F200A8C5DC /* ViewControllers */,
 				2CF2A7AC1E36D3BF00A8C5DC /* Main.storyboard */,
-				2CF2A7BD1E36D49E00A8C5DC /* SoupImage.JPG */,
 				2CF2A7B21E36D3BF00A8C5DC /* Assets.xcassets */,
 				2CF2A7B41E36D3BF00A8C5DC /* LaunchScreen.storyboard */,
+				2CF2A7BD1E36D49E00A8C5DC /* SoupImage.JPG */,
 				2CF2A7B71E36D3BF00A8C5DC /* Info.plist */,
 				2CF2A7BF1E36DA8C00A8C5DC /* GoogleService-Info.plist */,
 				2CF2A7AF1E36D3BF00A8C5DC /* SPORK.xcdatamodeld */,
@@ -131,6 +139,7 @@
 				2C44F8751E37ACB80063B34E /* IngredientViewController.swift */,
 				2C44F8841E395E460063B34E /* RecipeCollectionViewController.swift */,
 				2C7D2EA11E3CFF0800BBCA7B /* RecipeDetailViewController.swift */,
+				2C7D2EA31E3D7A9D00BBCA7B /* ShoppingListViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -270,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF2A7AB1E36D3BF00A8C5DC /* LogInViewController.swift in Sources */,
+				2C7D2EAC1E3E701F00BBCA7B /* ShoppingTableViewCell.swift in Sources */,
 				2C44F8831E383B5D0063B34E /* RecipeInfo.swift in Sources */,
 				2C44F8761E37ACB80063B34E /* IngredientViewController.swift in Sources */,
 				2C44F8781E37B90E0063B34E /* IngredientTableViewCell.swift in Sources */,
@@ -279,6 +289,8 @@
 				2C7D2EA21E3CFF0800BBCA7B /* RecipeDetailViewController.swift in Sources */,
 				2C44F8871E3A4EBA0063B34E /* RecipeImageCell.swift in Sources */,
 				2CF2A7B11E36D3BF00A8C5DC /* SPORK.xcdatamodeld in Sources */,
+				2C7D2EA81E3D88A300BBCA7B /* EdamamAPIManager.swift in Sources */,
+				2C7D2EA41E3D7A9D00BBCA7B /* ShoppingListViewController.swift in Sources */,
 				2CF2A7A91E36D3BF00A8C5DC /* AppDelegate.swift in Sources */,
 				2C44F8851E395E460063B34E /* RecipeCollectionViewController.swift in Sources */,
 				2CF2A7C21E36DFA700A8C5DC /* MenuViewController.swift in Sources */,

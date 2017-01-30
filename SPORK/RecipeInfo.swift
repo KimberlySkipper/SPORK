@@ -13,16 +13,17 @@ class RecipeInfo
     // where it is stored
     let title: String
     let href: String
-    let ingredients: String
+    let ingredients: [Ingredient]
     let thumbnail: String
+    
   
     
     //how it is created
-    init(recipeTitle: String, recipeUrl: String, recipeIngredients: String, recipeImage: String)
+    init(recipeTitle: String, recipeUrl: String, recipeIngredients: [String], recipeImage: String)
     {
         self.title = recipeTitle
         self.href = recipeUrl
-        self.ingredients = recipeIngredients
+        self.ingredients = Ingredient.changeArrayOfStringsToArrayOfIngredientObjects(oldStringArray: recipeIngredients)
         self.thumbnail = recipeImage
         
     }
@@ -37,15 +38,14 @@ class RecipeInfo
             let dictionary = result as [String: Any]
             let recipeTitle = dictionary["title"] as? String
             let recipeUrl = dictionary["href"] as? String
-            let recipeIngredients = dictionary["ingredients"] as? String
+            let recipeIngredients = (dictionary["ingredients"] as? String)?.components(separatedBy: ",")
             let recipeImage = dictionary["thumbnail"] as? String ?? ""
             listOfRecipes.append(RecipeInfo(recipeTitle: recipeTitle!, recipeUrl: recipeUrl!, recipeIngredients: recipeIngredients!, recipeImage: recipeImage))
         }
         return listOfRecipes
     }
     
-    
-}// end class
+    }// end class
 
 //let thumbnailURL = dictionary["artworkUrl60"] as? String ?? ""
 //let imageURL = dictionary["artworkUrl100"] as? String ?? ""

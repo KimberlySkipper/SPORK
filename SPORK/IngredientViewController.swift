@@ -15,7 +15,7 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     var ingredients = [Ingredient]()
-    var api: RecipePuppyAPIManager!
+    var api: EdamamAPIManager!
     
 
     override func viewDidLoad()
@@ -70,14 +70,10 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-    {
-        var shouldReturn = false
+     func textFieldDidEndEditing(_ textField: UITextField) {
         
         if textField.text != ""
         {
-            shouldReturn = true
             let contentView = textField.superview
             let cell = contentView?.superview as! IngredientTableViewCell
             let indexPath = tableView.indexPath(for: cell)
@@ -86,9 +82,43 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.ingredientTextField?.resignFirstResponder()
             
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        var shouldReturn = false
+        
+        if textField.text != ""
+        {
+            shouldReturn = true
+           let contentView = textField.superview
+            let cell = contentView?.superview as! IngredientTableViewCell
+    //        let indexPath = tableView.indexPath(for: cell)
+    //        let newIngredient = ingredients[indexPath!.row]
+    //        newIngredient.name = cell.ingredientTextField?.text
+            cell.ingredientTextField?.resignFirstResponder()
+            
+        }
         
         return shouldReturn
     }
+    
+    // Override to support conditional editing of the table view.
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+           // var anIngredient = ingredients[indexPath.row]
+            ingredients.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
     
         
     @IBAction func recipeButtonWasTapped(_ sender: UIButton)
@@ -107,7 +137,7 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let controller = segue.destination as! RecipeCollectionViewController
-        api = RecipePuppyAPIManager(delegate: controller as RecipePuppyAPIManagerProtocol)
+        api = EdamamAPIManager(delegate: controller as EdamamAPIManagerProtocol)
         api.searchRPFor(listOfIngredients: ingredients)
     }
     
