@@ -479,7 +479,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDO-8C-ogn">
-                                <rect key="frame" x="138" y="613" width="99" height="34"/>
+                                <rect key="frame" x="139" y="613" width="98" height="34"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Recipes">
@@ -487,7 +487,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PR-DH-TRc">
-                                <rect key="frame" x="20" y="613" width="98" height="34"/>
+                                <rect key="frame" x="20" y="613" width="99" height="34"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Menu">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -568,9 +568,7 @@
                             <constraint firstItem="9PR-DH-TRc" firstAttribute="height" secondItem="NDO-8C-ogn" secondAttribute="height" id="zAD-Hw-rE2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hmA-nn-bNC">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ECB-6C-3VW"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="hmA-nn-bNC"/>
                     <connections>
                         <outlet property="backToRecipesButton" destination="NDO-8C-ogn" id="qMb-IJ-zK3"/>
                         <outlet property="emailListButton" destination="zQs-eF-HaI" id="1ee-nA-eJ6"/>

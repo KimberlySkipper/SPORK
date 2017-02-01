@@ -69,9 +69,9 @@ class RecipePuppyAPIManager
             if let dictionary = self.parseJSON(data!)
             {
                 // call function from the recipe info class
-                if let results = dictionary["results"] as? [[String: Any]]
+                if let results = dictionary["results"] as? [String: Any]
                     {
-                        recipes = RecipeInfo.getRecipeInfoWithJSON(results)
+                        recipes = [RecipeInfo.createRecipeInfoWithJSON(results)!]
                     self.delegate.didReceiveRecipeInfo(listOfRecipeInfo: recipes)
                     }
             }

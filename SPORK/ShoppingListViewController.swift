@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
@@ -17,16 +18,18 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var returnToMenuButton: UIButton!
     
     var shoppingItems = [RecipeInfo]()
+    var ingredients = [Ingredient]()
     var recipeNames: [String]?
+    var fbRefHandle: FIRDatabaseHandle!
+    var dbRef: FIRDatabaseReference!
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Shopping List"
-    
+        configureDatabase()
         
-
         // Do any additional setup after loading the view.
     }
 
@@ -34,6 +37,29 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    //FIREBASE methods
+    
+    func configureDatabase()
+    {
+        //need to organize the data to look like what i want to return. I wans a recipe object
+        
+        dbRef = FIRDatabase.database().reference()
+        fbRefHandle = dbRef.child("recipes").observe(.childAdded, with: {(snapshot) -> Void in
+            // print(snapshot.value)
+            //must use self. in closure
+            let recipe = RecipeInfo.createRecipeInfoWithJSON(snapshot.value as! [String:Any])
+            recipe?.key = snapshot.key
+            self.shoppingItems.append(recipe!)
+            let indexPath = IndexPath(row: self.ingredients.count, section: self.shoppingItems.count - 1)
+            self.shoppingTableView.insertRows(at: [indexPath], with: .automatic)
+            self.shoppingTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        })
+        
+    }
+
+    
     
     //MARK: TableView Data Source
     
@@ -112,6 +138,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }
 
     }
+    
+    
 
     /*
     // MARK: - Navigation

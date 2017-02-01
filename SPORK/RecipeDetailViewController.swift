@@ -11,7 +11,7 @@
 
 import UIKit
 
-class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class RecipeDetailViewController: UIViewController,UITableViewDelegate, UITableViewDataSource
 {
     
     @IBOutlet weak var recipeNameLabel: UILabel!
@@ -82,8 +82,14 @@ class RecipeDetailViewController: UIViewController, UITableViewDelegate, UITable
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        let shopVC = segue.destination as! ShoppingListViewController
-        shopVC.shoppingItems.append(myRecipe!)
+        //var newRecipe = RecipeInfo()
+        //newRecipe.title = ""
+        //newRecipe.href = ""
+        //newRecipe.image = ""
+        //newRecipe.sendToFirebase()
+       // let shopVC = segue.destination as! ShoppingListViewController
+       // shopVC.shoppingItems.append(myRecipe!)
+        myRecipe?.sendToFirebase()
         // Pass the selected object to the new view controller.
     }
 

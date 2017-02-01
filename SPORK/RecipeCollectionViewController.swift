@@ -84,7 +84,7 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! RecipeImageCell
         cell.backgroundColor = UIColor.white
         
-        load_image(urlString: listOfRecipes[indexPath.row].thumbnail,imageView: cell.recipeThumbnail)
+        load_image(urlString: listOfRecipes[indexPath.row].image,imageView: cell.recipeThumbnail)
         cell.recipeTitleLabel.text = listOfRecipes[indexPath.row].title
        
         // Configure the cell
