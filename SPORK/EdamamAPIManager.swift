@@ -24,7 +24,7 @@
         // loop through listOfIngredients and add each to data with comma's
         for i in listOfIngredients
         {
-            apiData = apiData + "\(i.name!.replacingOccurrences(of: " ", with: "-"))" + ","
+            apiData = apiData + "\(i.name.replacingOccurrences(of: " ", with: "-"))" + ","
         }
         //let encodedName = apiData.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
         
@@ -76,11 +76,10 @@
         }
     }
     
-    
+    // parse JSON coming back from recipie API
     func getRecipeInfoWithJSON2(_ results: [[String: Any]]) -> [RecipeInfo]
     {
         var listOfRecipes = [RecipeInfo]()
-        
         for result in results
         {
             let dictionary = (result as [String: Any])["recipe"] as! [String: Any]

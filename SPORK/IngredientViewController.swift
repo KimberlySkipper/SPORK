@@ -49,7 +49,7 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
      {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath) as! IngredientTableViewCell
         let aGroceryItem = ingredients[indexPath.row]
-        if aGroceryItem.name == nil
+        if aGroceryItem.name.isEmpty
         {
             cell.ingredientTextField?.becomeFirstResponder()
         }
@@ -65,7 +65,7 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func addItem(_ sender: UIBarButtonItem)
     {
        // create a new object and append the list
-       ingredients.append(Ingredient())
+       ingredients.append(Ingredient(ingredient: ""))
        tableView.insertRows(at: [IndexPath(row: ingredients.count-1, section: 0)], with: .automatic)
         
         
@@ -78,7 +78,7 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
             let cell = contentView?.superview as! IngredientTableViewCell
             let indexPath = tableView.indexPath(for: cell)
             let newIngredient = ingredients[indexPath!.row]
-            newIngredient.name = cell.ingredientTextField?.text
+            newIngredient.name = (cell.ingredientTextField?.text)!
             cell.ingredientTextField?.resignFirstResponder()
             
         }

@@ -10,7 +10,6 @@
 		2C44F8761E37ACB80063B34E /* IngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F8751E37ACB80063B34E /* IngredientViewController.swift */; };
 		2C44F8781E37B90E0063B34E /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F8771E37B90E0063B34E /* IngredientTableViewCell.swift */; };
 		2C44F87C1E37D1C60063B34E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F87B1E37D1C60063B34E /* Ingredient.swift */; };
-		2C44F87F1E38322C0063B34E /* RecipePuppyAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F87E1E38322C0063B34E /* RecipePuppyAPIManager.swift */; };
 		2C44F8831E383B5D0063B34E /* RecipeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F8821E383B5D0063B34E /* RecipeInfo.swift */; };
 		2C44F8851E395E460063B34E /* RecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F8841E395E460063B34E /* RecipeCollectionViewController.swift */; };
 		2C44F8871E3A4EBA0063B34E /* RecipeImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F8861E3A4EBA0063B34E /* RecipeImageCell.swift */; };
@@ -35,7 +34,6 @@
 		2C44F8751E37ACB80063B34E /* IngredientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientViewController.swift; sourceTree = "<group>"; };
 		2C44F8771E37B90E0063B34E /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		2C44F87B1E37D1C60063B34E /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
-		2C44F87E1E38322C0063B34E /* RecipePuppyAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipePuppyAPIManager.swift; sourceTree = "<group>"; };
 		2C44F8821E383B5D0063B34E /* RecipeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeInfo.swift; sourceTree = "<group>"; };
 		2C44F8841E395E460063B34E /* RecipeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewController.swift; sourceTree = "<group>"; };
 		2C44F8861E3A4EBA0063B34E /* RecipeImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeImageCell.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				2C7D2EAB1E3E701F00BBCA7B /* ShoppingTableViewCell.swift */,
 				2C44F87B1E37D1C60063B34E /* Ingredient.swift */,
 				2C44F8821E383B5D0063B34E /* RecipeInfo.swift */,
-				2C44F87E1E38322C0063B34E /* RecipePuppyAPIManager.swift */,
 				2C7D2EA71E3D88A300BBCA7B /* EdamamAPIManager.swift */,
 			);
 			name = ModelClass;
@@ -284,7 +281,6 @@
 				2C44F8761E37ACB80063B34E /* IngredientViewController.swift in Sources */,
 				2C44F8781E37B90E0063B34E /* IngredientTableViewCell.swift in Sources */,
 				2CF2A7C51E36E31400A8C5DC /* AppState.swift in Sources */,
-				2C44F87F1E38322C0063B34E /* RecipePuppyAPIManager.swift in Sources */,
 				2C44F87C1E37D1C60063B34E /* Ingredient.swift in Sources */,
 				2C7D2EA21E3CFF0800BBCA7B /* RecipeDetailViewController.swift in Sources */,
 				2C44F8871E3A4EBA0063B34E /* RecipeImageCell.swift in Sources */,

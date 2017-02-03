@@ -33,6 +33,7 @@ class RecipeInfo
     
     }
     
+    // we use 
     init(recipeTitle: String, recipeUrl: String, recipeIngredients: [String], recipeImage: String)
     {
         self.title = recipeTitle
@@ -41,45 +42,38 @@ class RecipeInfo
         self.ingredients = Ingredient.changeArrayOfStringsToArrayOfIngredientObjects(oldStringArray: recipeIngredients)
         
     }
+    // pasrse data coming back from Firebase
     static func createRecipeInfoWithJSON(_ dictionary: [String: Any]) -> RecipeInfo?
     {
         var recipeInfo: RecipeInfo?
-        //recipeInfo = nil
     
-        if let mainDictionary = dictionary["recipes"] as! [String: Any]?
-            {
                 let recipeTitle = dictionary["title"] as? String ?? ""
                 let recipeUrl = dictionary["href"] as? String ?? ""
-               // let recipeIngredients =
                 let recipeImage = dictionary["image"] as? String ?? ""
-                
+        
+                // dont create a recipie info if it has no ingredients yet
                 if let childDictionary = dictionary["ingredients"] as! [String: Any]?
 
-                    //(dictionary["ingredients"] as? String)?.components(separatedBy: ",")
                     {
                         var listOfIngredients = [Ingredient]()
                         for (key, value) in childDictionary
                         {
-                            let anIngredient = Ingredient()
+                            
                             let ingredientDic = value as! [String: Any]
                             let name = ingredientDic["name"] as? String ?? ""
                             let done = ingredientDic["status"] as! Bool
+                            let anIngredient = Ingredient(ingredient: name, isDone: done, key: key)
                             listOfIngredients.append(anIngredient)
                         }
                         recipeInfo = RecipeInfo(recipeTitle: recipeTitle,recipeUrl: recipeUrl, recipeIngredients: listOfIngredients, recipeImage: recipeImage)
                     }
                 
-            }
             return recipeInfo
-        
-        
-        
     }
 
     
     func sendToFirebase()
     {
-        
         dbRef = FIRDatabase.database().reference()
        // create a dictionary of dictionaries
         let recipeData: [String: Any] =
@@ -87,38 +81,45 @@ class RecipeInfo
              "title": title,
              "href": href,
              "image": image]
-             // "ingredients":[Ingredient].self]
-            /*{
-            let ingredientData: [String: Any] = ["name": ingredients.name,"status": ingredients.done]
-            let shoppingListRef =
-            }
-            // "status": ingredients.done ?? false]*/
-        dbRef?.child("recipes").childByAutoId().setValue(recipeData)
+        let recipeRef = dbRef?.child("recipes").childByAutoId()
+        recipeRef?.setValue(recipeData)
+        
+        for anIngredient in ingredients
+        {
+            let ingredientJSON: [String: Any] = ["name": anIngredient.name, "status": anIngredient.done]
+            recipeRef?.child("ingredients").childByAutoId().setValue(ingredientJSON)
+        }
     }
     
-   /* func sendEditToFirebase()
+   
+   func sendEditToFirebase()
     {
         dbRef = FIRDatabase.database().reference()
         
-        let recipeData: [String: String] = ["title": title!,
-                                         "href": href!,
-                                         "image": image!]
-                                        // "status": ingredients.done ?? false]
-        dbRef?.child("shoppingList").child(key!).setValue(recipeData)
+        let recipeData: [String: Any] =
+            ["gID": FIRGoogleAuthProviderID,
+             "title": title,
+             "href": href,
+             "image": image]
+        let recipeRef = dbRef?.child("recipes").childByAutoId()
+        recipeRef?.setValue(recipeData)
+        
+        for anIngredient in ingredients
+        {
+            let ingredientJSON: [String: Any] = ["name": anIngredient.name, "status": anIngredient.done]
+            recipeRef?.child("ingredients").childByAutoId().setValue(ingredientJSON)
+        }
+        
+        dbRef?.child("recipes").child(key!).setValue(recipeData)
     }
     
     func deleteFromFirebase()
     {
         dbRef = FIRDatabase.database().reference()
-        dbRef?.child("shoppingList").child(key!).removeValue()
-    }*/
+        dbRef?.child("recipes").child(key!).removeValue()
+    }
     
-    }// end class
+}// end class
 
-//let thumbnailURL = dictionary["artworkUrl60"] as? String ?? ""
-//let imageURL = dictionary["artworkUrl100"] as? String ?? ""
-//let artistURL = dictionary["artistViewUrl"] as? String ?? ""
-
-//var itemURL = dictionary["collectionViewUrl"] as? String
 
 
