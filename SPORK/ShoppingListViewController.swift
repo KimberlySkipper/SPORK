@@ -19,7 +19,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var returnToMenuButton: UIButton!
     
     var shoppingItems = [RecipeInfo]()
-    var ingredients = [Ingredient]()
+   // var ingredients = [Ingredient]()
     var recipeNames: [String]?
     var aRecipe: RecipeInfo?
     var fbRefHandle: FIRDatabaseHandle!
@@ -76,14 +76,28 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["skipper.jason@gmail.com"])
-            mail.setSubject("A Recipe From SPORK")
-            mail.setMessageBody("sad face", isHTML: true)
+            var recipeString = String()
+            for aRecipe in shoppingItems
+            {
+                
+                let recipeTitle = aRecipe.title
+                recipeString.append(recipeTitle)
+                print(recipeString)
+               for anIngredient in aRecipe.ingredients
+                {
+                    recipeString.append(anIngredient.name)
+                    print(recipeString)
+                }
+               
+            }
+        mail.setToRecipients(["skipper.jason@gmail.com"])
+        mail.setSubject("A Shopping List From SPORK")
+        mail.setMessageBody(recipeString, isHTML: true)
             //(aRecipe?.href)! DOESNT WORK
-            present(mail, animated: true)
+        present(mail, animated: true)
         } else {
-            // show failure alert
-        }
+        print("Can not send email")
+            }
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
@@ -141,21 +155,27 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
-        headerView.backgroundColor = UIColor.lightGray
+        headerView.backgroundColor = UIColor.darkGray
         
         
         let label = UILabel()
         label.text = "Name of Recipe"
-        label.frame = CGRect(x: 45, y: 5, width: 100, height: 35)
-        view.addSubview(label)
+        label.frame = CGRect(x: 45, y: 5, width: 150, height: 35)
+        label.backgroundColor = UIColor.darkGray
+        label.textColor = UIColor.white
+        headerView.addSubview(label)
+        
+        let image = UIImageView()
+        image.image = #imageLiteral(resourceName: "SoupImage.JPG")
+        image.frame = CGRect(x: 5, y: 5, width: 35, height: 35)
+        headerView.addSubview(image)
         
         let deleteButton = UIButton()
         
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.isEnabled = true
-        deleteButton.setTitle("Delete", for: .normal)
-        deleteButton.setTitleColor(UIColor.red, for: .normal)
-        deleteButton.frame = CGRect(x: 300, y: 5, width: 60, height: 35)
+        deleteButton.setImage(#imageLiteral(resourceName: "trashBin3.png"), for: .normal)
+        deleteButton.frame = CGRect(x: 330, y: 5, width: 35, height: 35)
         deleteButton.addTarget(self, action: #selector(didPressDelete), for: .touchUpInside)
         headerView.addSubview(deleteButton)
 

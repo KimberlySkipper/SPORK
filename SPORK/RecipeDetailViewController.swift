@@ -82,13 +82,7 @@ class RecipeDetailViewController: UIViewController,UITableViewDelegate, UITableV
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        //var newRecipe = RecipeInfo()
-        //newRecipe.title = ""
-        //newRecipe.href = ""
-        //newRecipe.image = ""
-        //newRecipe.sendToFirebase()
-       // let shopVC = segue.destination as! ShoppingListViewController
-       // shopVC.shoppingItems.append(myRecipe!)
+        
         myRecipe?.sendToFirebase()
         // Pass the selected object to the new view controller.
     }

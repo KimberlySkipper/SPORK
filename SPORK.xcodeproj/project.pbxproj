@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C382AFF1E462BBB00B578A9 /* trashBin3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C382AFE1E462BBB00B578A9 /* trashBin3.png */; };
 		2C44F8761E37ACB80063B34E /* IngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F8751E37ACB80063B34E /* IngredientViewController.swift */; };
 		2C44F8781E37B90E0063B34E /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F8771E37B90E0063B34E /* IngredientTableViewCell.swift */; };
 		2C44F87C1E37D1C60063B34E /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C44F87B1E37D1C60063B34E /* Ingredient.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C382AFE1E462BBB00B578A9 /* trashBin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trashBin3.png; sourceTree = "<group>"; };
 		2C44F8751E37ACB80063B34E /* IngredientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientViewController.swift; sourceTree = "<group>"; };
 		2C44F8771E37B90E0063B34E /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		2C44F87B1E37D1C60063B34E /* Ingredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				2CF2A7AC1E36D3BF00A8C5DC /* Main.storyboard */,
 				2CF2A7B21E36D3BF00A8C5DC /* Assets.xcassets */,
 				2CF2A7B41E36D3BF00A8C5DC /* LaunchScreen.storyboard */,
+				2C382AFE1E462BBB00B578A9 /* trashBin3.png */,
 				2CF2A7BD1E36D49E00A8C5DC /* SoupImage.JPG */,
 				2CF2A7B71E36D3BF00A8C5DC /* Info.plist */,
 				2CF2A7BF1E36DA8C00A8C5DC /* GoogleService-Info.plist */,
@@ -216,6 +219,7 @@
 				2CF2A7B31E36D3BF00A8C5DC /* Assets.xcassets in Resources */,
 				2CF2A7C01E36DA8C00A8C5DC /* GoogleService-Info.plist in Resources */,
 				2CF2A7BE1E36D49E00A8C5DC /* SoupImage.JPG in Resources */,
+				2C382AFF1E462BBB00B578A9 /* trashBin3.png in Resources */,
 				2CF2A7AE1E36D3BF00A8C5DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

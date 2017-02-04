@@ -224,7 +224,7 @@
                                                     </connections>
                                                 </textField>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.80165409269999999" green="0.82436436059999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="MiW-na-afk" firstAttribute="leading" secondItem="Ha9-fs-Ywv" secondAttribute="leading" constant="10" id="26L-vg-pv5"/>
                                                 <constraint firstAttribute="trailing" secondItem="MiW-na-afk" secondAttribute="trailing" constant="90" id="TUO-nY-anb"/>
@@ -473,14 +473,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQs-eF-HaI">
-                                <rect key="frame" x="257" y="613" width="98" height="34"/>
+                                <rect key="frame" x="256.5" y="613" width="98.5" height="34"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Email">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDO-8C-ogn">
-                                <rect key="frame" x="138" y="613" width="99" height="34"/>
+                                <rect key="frame" x="138.5" y="613" width="98" height="34"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Recipes">
@@ -488,7 +488,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PR-DH-TRc">
-                                <rect key="frame" x="20" y="613" width="98" height="34"/>
+                                <rect key="frame" x="20" y="613" width="98.5" height="34"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Menu">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -620,7 +620,7 @@
         <image name="uncheckedBox" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l6H-Aw-ssR"/>
+        <segue reference="v9G-sk-ScV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
