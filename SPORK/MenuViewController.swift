@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 class MenuViewController: UIViewController {
 
@@ -40,5 +42,21 @@ class MenuViewController: UIViewController {
     {
         //no code necessary, but can add funtionality if needed.
     }
+    
+    @IBAction func logOutButton(_ sender: Any)
+    {
+        GIDSignIn.sharedInstance().signOut()
+        AppState.sharedInstance.signedIn = false
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+            print ("user is signed out")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        //FIXME: change user to available = false
+        self.navigationController?.popViewController(animated: true)
+    }
+
 
 }// end class

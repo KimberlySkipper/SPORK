@@ -41,11 +41,11 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
-    //FIREBASE methods
+    //MARK: FIREBASE methods
     
     func configureDatabase()
     {
-        //need to organize the data to look like what i want to return. I wans a recipe object
+        //need to organize the data to look like what I want to return. I want a recipe object
         
         dbRef = FIRDatabase.database().reference()
         fbRefHandle = dbRef.child("recipes").observe(.childAdded, with: {(snapshot) -> Void in
@@ -76,21 +76,22 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
+            //Iterate through the recipe info object, specifically the title and the ingredients(name) and assign them to a string to send in the email function. Added HTML to the string format the email.
             var recipeString = String()
             for aRecipe in shoppingItems
             {
                 
                 let recipeTitle = aRecipe.title
-                recipeString.append(recipeTitle)
+                recipeString.append("</h2><b>\(recipeTitle)</b></h2>")
                 print(recipeString)
                for anIngredient in aRecipe.ingredients
                 {
-                    recipeString.append(anIngredient.name)
+                    recipeString.append("<ul><li>\(anIngredient.name)</li></ul>")
                     print(recipeString)
                 }
                
             }
-        mail.setToRecipients(["skipper.jason@gmail.com"])
+       // mail.setToRecipients(["skipper.jason@gmail.com"])
         mail.setSubject("A Shopping List From SPORK")
         mail.setMessageBody(recipeString, isHTML: true)
             //(aRecipe?.href)! DOESNT WORK
@@ -159,20 +160,20 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         
         let label = UILabel()
-        label.text = "Name of Recipe"
-        label.frame = CGRect(x: 45, y: 5, width: 150, height: 35)
+        label.text = shoppingItems[section].title
+        label.frame = CGRect(x: 45, y: 5, width: 250, height: 35)
         label.backgroundColor = UIColor.darkGray
         label.textColor = UIColor.white
         headerView.addSubview(label)
         
         let image = UIImageView()
-        image.image = #imageLiteral(resourceName: "SoupImage.JPG")
+        RecipeCollectionViewController.load_image(urlString: shoppingItems[section].image, imageView: image)
         image.frame = CGRect(x: 5, y: 5, width: 35, height: 35)
         headerView.addSubview(image)
         
         let deleteButton = UIButton()
-        
-        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        //removed auto resixeing to see if it fixed the icon traveling bug
+        // deleteButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.isEnabled = true
         deleteButton.setImage(#imageLiteral(resourceName: "trashBin3.png"), for: .normal)
         deleteButton.frame = CGRect(x: 330, y: 5, width: 35, height: 35)

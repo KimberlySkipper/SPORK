@@ -119,8 +119,7 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    
-        
+
     @IBAction func recipeButtonWasTapped(_ sender: UIButton)
     {
         //api = RecipePuppyAPIManager(delegate: RecipeCollectionViewController.self as! RecipePuppyAPIManagerProtocol)

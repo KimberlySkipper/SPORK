@@ -84,7 +84,7 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! RecipeImageCell
         cell.backgroundColor = UIColor.white
         
-        load_image(urlString: listOfRecipes[indexPath.row].image,imageView: cell.recipeThumbnail)
+        RecipeCollectionViewController.load_image(urlString: listOfRecipes[indexPath.row].image,imageView: cell.recipeThumbnail)
         cell.recipeTitleLabel.text = listOfRecipes[indexPath.row].title
        
         // Configure the cell
@@ -93,7 +93,7 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
     
     //This function was largely copied from this VERY helpful internet post.  Please go visit them here: http://swiftdeveloperblog.com/code-examples/uiimageview-and-uiimage-load-image-from-remote-url/ After many tries, this finally loaded my images in the proper threads.  Thank you.
     
-    func load_image(urlString: String?, imageView: UIImageView)
+    static func load_image(urlString: String?, imageView: UIImageView)
     {
         if(urlString == nil)
         {
