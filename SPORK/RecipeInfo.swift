@@ -92,25 +92,11 @@ class RecipeInfo
     }
     
    
-   func sendEditToFirebase()
+    func sendEditToFirebase(ingredientKey: String, status: Bool)
     {
         dbRef = FIRDatabase.database().reference()
         
-        let recipeData: [String: Any] =
-            ["gID": FIRGoogleAuthProviderID,
-             "title": title,
-             "href": href,
-             "image": image]
-        let recipeRef = dbRef?.child("recipes").childByAutoId()
-        recipeRef?.setValue(recipeData)
-        
-        for anIngredient in ingredients
-        {
-            let ingredientJSON: [String: Any] = ["name": anIngredient.name, "status": anIngredient.done]
-            recipeRef?.child("ingredients").childByAutoId().setValue(ingredientJSON)
-        }
-        
-        dbRef?.child("recipes").child(key!).setValue(recipeData)
+        dbRef?.child("recipes").child(key!).child("ingredients").child(ingredientKey).child("status").setValue(status)
     }
     
     func deleteFromFirebase()

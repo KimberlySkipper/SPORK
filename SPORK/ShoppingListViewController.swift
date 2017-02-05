@@ -82,7 +82,13 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             {
                 
                 let recipeTitle = aRecipe.title
-                recipeString.append("</h2><b>\(recipeTitle)</b></h2>")
+                //recipeString.append("</h1><b>\(recipeTitle)</b></h1>")
+                
+                let recipeLink = aRecipe.href
+               // recipeString.append("<a href=\(recipeLink) ></a>")
+                
+                recipeString.append("</h1><b><a href='\(recipeLink)'>\(recipeTitle)</a></b></h1>")
+
                 print(recipeString)
                for anIngredient in aRecipe.ingredients
                 {
@@ -143,10 +149,12 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }else{
             cell.checkboxButton.setImage(UIImage(named: "uncheckedBox"), for: .normal)
         }
-       
+        cell.setEditing(false, animated: true)
       return cell
     }
     
+    
+    //MARK: Creating the SECTION VIEW
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
@@ -208,8 +216,10 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 anItem.done = true
  
             }
-        aRecipe.sendEditToFirebase()
-        shoppingTableView.reloadData()
+        aRecipe.sendEditToFirebase(ingredientKey: anItem.key!, status: anItem.done)
+        //Used this method instead of reloadData() because the image was flashing when checking the box, now it will only effect the cellsin stead ofthe section.
+        shoppingTableView.reloadRows(at: [indexPath!], with: .middle)
+        //shoppingTableView.reloadData()
  
     }
     
@@ -229,12 +239,12 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     //MARK: Editing Cells
     
     // Override to support conditional editing of the table view.
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+   /*func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
     
-    // Override to support editing the table view.
+   // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
     {
         if editingStyle == .delete
@@ -245,7 +255,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
 
-    }
+    }*/
     
     
        /* if (editingStyle == UITableViewCellEditingStyle.Delete) {
