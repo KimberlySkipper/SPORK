@@ -158,7 +158,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
         headerView.backgroundColor = UIColor.darkGray
         
-        
+        // create
         let label = UILabel()
         label.text = shoppingItems[section].title
         label.frame = CGRect(x: 45, y: 5, width: 250, height: 35)
@@ -178,6 +178,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         deleteButton.setImage(#imageLiteral(resourceName: "trashBin3.png"), for: .normal)
         deleteButton.frame = CGRect(x: 330, y: 5, width: 35, height: 35)
         deleteButton.addTarget(self, action: #selector(didPressDelete), for: .touchUpInside)
+        deleteButton.tag = section
         headerView.addSubview(deleteButton)
 
         return headerView
@@ -212,17 +213,18 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
  
     }
     
-    func didPressDelete()
+    func didPressDelete(_ sender: UIButton)
     {
-     //   var recipeSection = aRecipe[index.section]
-        //print("DID MAKE BUTTON")
         shoppingTableView.beginUpdates()
-        
-        
-      //  shoppingItems.deleteSection()
-       // shoppingTableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
-       // RecipeInfo.deleteFromFirebase(shoppingItems)
+        //1. remove item from the array
+        let removedRecipe = shoppingItems.remove(at: sender.tag)
+        //2. delete from firebase
+        removedRecipe.deleteFromFirebase()
+        //3. delete from the UI (section)
+        shoppingTableView.deleteSections([sender.tag], with: .automatic)
+        shoppingTableView.endUpdates()
     }
+    
     
     //MARK: Editing Cells
     

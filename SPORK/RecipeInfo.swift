@@ -116,6 +116,8 @@ class RecipeInfo
     func deleteFromFirebase()
     {
         dbRef = FIRDatabase.database().reference()
+        //set value takes away the old information and replaces it with the new.
+        dbRef?.child("recipes").child(key!).setValue(nil)
         dbRef?.child("recipes").child(key!).removeValue()
     }
     

@@ -28,7 +28,7 @@
         }
         //let encodedName = apiData.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
         
-        let urlPath = "https://api.edamam.com/search?app_id=4f4a0765&app_key=10daae1f4b1652a6e979aa2208498695&q=\(apiData)"
+        let urlPath = "https://api.edamam.com/search?&q=\(apiData)"
         print(urlPath)
         let url = URL(string: urlPath)
         let session = URLSession.shared
