@@ -149,7 +149,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }else{
             cell.checkboxButton.setImage(UIImage(named: "uncheckedBox"), for: .normal)
         }
-        cell.setEditing(false, animated: true)
+        //disabled used of keyboard for the shopping list
+       cell.shoppingItemTextField.isEnabled = false
+       
       return cell
     }
     
@@ -166,18 +168,19 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
         headerView.backgroundColor = UIColor.darkGray
         
-        // create
+        // create label
         let label = UILabel()
         label.text = shoppingItems[section].title
         label.frame = CGRect(x: 45, y: 5, width: 250, height: 35)
         label.backgroundColor = UIColor.darkGray
         label.textColor = UIColor.white
         headerView.addSubview(label)
-        
+        //create image view
         let image = UIImageView()
         RecipeCollectionViewController.load_image(urlString: shoppingItems[section].image, imageView: image)
         image.frame = CGRect(x: 5, y: 5, width: 35, height: 35)
         headerView.addSubview(image)
+        //create delete button
         
         let deleteButton = UIButton()
         //removed auto resixeing to see if it fixed the icon traveling bug

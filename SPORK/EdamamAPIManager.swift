@@ -26,9 +26,20 @@
         {
             apiData = apiData + "\(i.name.replacingOccurrences(of: " ", with: "-"))" + ","
         }
-        //let encodedName = apiData.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics)
         
-        let urlPath = "https://api.edamam.com/search?&q=\(apiData)"
+        
+        //Store the API Key in a plist.
+        //https://newfivefour.com/index.3.html
+        var APIKey: String?
+        if let path = Bundle.main.path(forResource: "APIKey", ofType: "plist") {
+            let dictRoot = NSDictionary(contentsOfFile: path)
+            if let dict = dictRoot {
+                APIKey = (dict["APIKey"] as! String)
+                debugPrint(dict["APIKey"] as! String)
+            }
+        }
+        
+        let urlPath = "https://api.edamam.com/search?app_id=4f4a0765&app_key=\(APIKey!)&q=\(apiData)"
         print(urlPath)
         let url = URL(string: urlPath)
         let session = URLSession.shared

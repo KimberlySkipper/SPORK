@@ -23,7 +23,6 @@ class RecipeInfo
     
     
     //how it is created
-    //is it necessary to initialize the gID??
     init(recipeTitle: String, recipeUrl: String, recipeIngredients: [Ingredient], recipeImage: String)
     {
         self.title = recipeTitle
@@ -33,7 +32,7 @@ class RecipeInfo
     
     }
     
-    // we use 
+    // we use this initializer to init on API call
     init(recipeTitle: String, recipeUrl: String, recipeIngredients: [String], recipeImage: String)
     {
         self.title = recipeTitle
@@ -71,6 +70,7 @@ class RecipeInfo
             return recipeInfo
     }
 
+    //MARK: Firebase Functions
     
     func sendToFirebase()
     {
