@@ -10,13 +10,15 @@ import UIKit
 import Firebase
 import MessageUI
 
-class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate
+
+class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     
     @IBOutlet weak var shoppingTableView: UITableView!
     @IBOutlet weak var backToRecipesButton: UIButton!
     @IBOutlet weak var emailListButton: UIButton!
     @IBOutlet weak var returnToMenuButton: UIButton!
+    var newMedia: Bool?
     
     var shoppingItems = [RecipeInfo]()
    // var ingredients = [Ingredient]()
@@ -137,10 +139,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCell", for: indexPath) as! ShoppingTableViewCell
     
-        let anIngredient = self.shoppingItems[indexPath.section].ingredients[indexPath.row]
+       let anIngredient = self.shoppingItems[indexPath.section].ingredients[indexPath.row]
         cell.shoppingItemTextField.text = anIngredient.name
         if (anIngredient.done)
         {
@@ -151,9 +152,19 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         }
         //disabled used of keyboard for the shopping list
        cell.shoppingItemTextField.isEnabled = false
+ 
        
-      return cell
+     return cell
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! ShoppingTableViewCell
+        checkboxButtonWasTapped(cell.checkboxButton)
+    }
+    
     
     
     //MARK: Creating the SECTION VIEW
@@ -184,7 +195,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         
         let deleteButton = UIButton()
         //removed auto resixeing to see if it fixed the icon traveling bug
-        // deleteButton.translatesAutoresizingMaskIntoConstraints = false
+         //deleteButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.isEnabled = true
         deleteButton.setImage(#imageLiteral(resourceName: "trashBin3.png"), for: .normal)
         deleteButton.frame = CGRect(x: 330, y: 5, width: 35, height: 35)
@@ -237,6 +248,13 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         shoppingTableView.deleteSections([sender.tag], with: .automatic)
         shoppingTableView.endUpdates()
     }
+    
+    
+    @IBAction func searchGroceriesAction(_ sender: UIBarButtonItem)
+    {
+        self.performSegue(withIdentifier: "ShowMapSegue", sender: UIBarButtonItem())
+    }
+    
     
     
     //MARK: Editing Cells

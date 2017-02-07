@@ -191,7 +191,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpA-sL-vtz">
-                                <rect key="frame" x="20" y="617" width="149.5" height="30"/>
+                                <rect key="frame" x="20" y="617" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="View Recipes">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,7 +241,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-hd-OLx">
-                                <rect key="frame" x="189.5" y="617" width="149.5" height="30"/>
+                                <rect key="frame" x="190" y="617" width="149" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Shopping List"/>
                             </button>
@@ -281,7 +281,7 @@
         <scene sceneID="0DC-ka-IiD">
             <objects>
                 <collectionViewController id="0ja-1p-TZv" customClass="RecipeCollectionViewController" customModule="SPORK" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="yDB-cQ-0z7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="yDB-cQ-0z7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.18228" green="0.20999999999999999" blue="0.19812660000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -467,7 +467,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PR-DH-TRc">
-                                <rect key="frame" x="20" y="617" width="157.5" height="30"/>
+                                <rect key="frame" x="20" y="617" width="158" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Menu">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -529,7 +529,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-Qg-hgG">
-                                <rect key="frame" x="197.5" y="617" width="157" height="30"/>
+                                <rect key="frame" x="198" y="617" width="157" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Email">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -555,7 +555,14 @@
                             <constraint firstItem="9PR-DH-TRc" firstAttribute="height" secondItem="hxo-Qg-hgG" secondAttribute="height" id="xgt-wQ-dlo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hmA-nn-bNC"/>
+                    <navigationItem key="navigationItem" id="hmA-nn-bNC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="gx6-P9-geG">
+                            <connections>
+                                <action selector="searchGroceriesAction:" destination="rxu-uD-NmK" id="ura-ZH-bZ2"/>
+                                <segue destination="wYf-Qi-b9w" kind="show" identifier="ShowMapSegue" id="nD9-w4-4A5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailListButton" destination="hxo-Qg-hgG" id="82s-No-eAR"/>
                         <outlet property="returnToMenuButton" destination="9PR-DH-TRc" id="P7I-Kl-pkQ"/>
@@ -567,12 +574,44 @@
             </objects>
             <point key="canvasLocation" x="5605.6000000000004" y="790.25487256371821"/>
         </scene>
+        <!--Grocery Store View Controller-->
+        <scene sceneID="IeJ-MA-Me5">
+            <objects>
+                <viewController id="wYf-Qi-b9w" customClass="GroceryStoreViewController" customModule="SPORK" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rag-ol-hUZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="k3C-Sf-foX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hZd-AW-h3z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SFF-26-dTg">
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SFF-26-dTg" firstAttribute="leading" secondItem="hZd-AW-h3z" secondAttribute="leadingMargin" id="LIp-De-Wkq"/>
+                            <constraint firstItem="SFF-26-dTg" firstAttribute="trailing" secondItem="hZd-AW-h3z" secondAttribute="trailingMargin" id="UBP-7G-8pU"/>
+                            <constraint firstItem="k3C-Sf-foX" firstAttribute="top" secondItem="SFF-26-dTg" secondAttribute="bottom" id="YFr-P3-GYB"/>
+                            <constraint firstItem="SFF-26-dTg" firstAttribute="top" secondItem="Rag-ol-hUZ" secondAttribute="bottom" id="hPN-IL-WF7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="SFF-26-dTg" id="4a3-bA-I81"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iBe-Ef-OxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6580" y="793.8530734632684"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="7GE-0Q-nub">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rK1-1d-Ja6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gcd-s3-brD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gcd-s3-brD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -595,7 +634,7 @@
         <image name="uncheckedBox" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v9G-sk-ScV"/>
+        <segue reference="l6H-Aw-ssR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
