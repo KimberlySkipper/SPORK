@@ -58,6 +58,7 @@ class GroceryStoreViewController: UIViewController, CLLocationManagerDelegate
             print("location:: \(location)")
             
            // http://www.techotopia.com/index.php/Working_with_MapKit_Local_Search_in_iOS_8_and_Swift
+            //Most of the code below as copied directly from the website above.  Thank you techopia.com.
             
             let request = MKLocalSearchRequest()
             request.naturalLanguageQuery = "Groceries"
@@ -96,13 +97,4 @@ class GroceryStoreViewController: UIViewController, CLLocationManagerDelegate
         print("error:: (error)")
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-}
+}// end class

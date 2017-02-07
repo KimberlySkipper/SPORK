@@ -244,6 +244,9 @@
                                 <rect key="frame" x="190" y="617" width="149" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Shopping List"/>
+                                <connections>
+                                    <segue destination="rxu-uD-NmK" kind="show" identifier="ShoppingListSegue" id="E2A-VK-JFK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18228" green="0.20999999999999999" blue="0.19812660000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -334,7 +337,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wF-aI-32i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3682" y="475"/>
+            <point key="canvasLocation" x="3695" y="343"/>
         </scene>
         <!--Recipe Detail View Controller-->
         <scene sceneID="lRH-A4-c88">
@@ -452,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d34-ix-Jkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4630" y="475"/>
+            <point key="canvasLocation" x="4615" y="342"/>
         </scene>
         <!--Shopping List View Controller-->
         <scene sceneID="5ji-FF-cr5">
@@ -586,11 +589,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SFF-26-dTg">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SFF-26-dTg">
                                 <rect key="frame" x="16" y="64" width="343" height="603"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.18228" green="0.20999999999999999" blue="0.19812660000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SFF-26-dTg" firstAttribute="leading" secondItem="hZd-AW-h3z" secondAttribute="leadingMargin" id="LIp-De-Wkq"/>
                             <constraint firstItem="SFF-26-dTg" firstAttribute="trailing" secondItem="hZd-AW-h3z" secondAttribute="trailingMargin" id="UBP-7G-8pU"/>
@@ -634,7 +637,7 @@
         <image name="uncheckedBox" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l6H-Aw-ssR"/>
+        <segue reference="E2A-VK-JFK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

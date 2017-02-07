@@ -153,9 +153,14 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
     {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ShoppingListSegue"
+        {
+            let destinationVC = ShoppingListViewController.self
+        } else {
         let controller = segue.destination as! RecipeCollectionViewController
         api = EdamamAPIManager(delegate: controller as EdamamAPIManagerProtocol)
         api.searchRPFor(listOfIngredients: ingredients)
+        }
     }
     
 

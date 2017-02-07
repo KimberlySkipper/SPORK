@@ -73,6 +73,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     //MARK: Email functionality
    // https://www.hackingwithswift.com/example-code/uikit/how-to-send-an-email
+    //The code below was mostly coppied from the website above.  Thank you Paul from Hacking with Swift.
     func sendEmail() {
         if MFMailComposeViewController.canSendMail()
         {
@@ -85,10 +86,10 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 
                 let recipeTitle = aRecipe.title
                 //recipeString.append("</h1><b>\(recipeTitle)</b></h1>")
-                
                 let recipeLink = aRecipe.href
                // recipeString.append("<a href=\(recipeLink) ></a>")
                 
+                //Use HTML to set title as a link to the recipe in the email.
                 recipeString.append("</h1><b><a href='\(recipeLink)'>\(recipeTitle)</a></b></h1>")
 
                 print(recipeString)
@@ -102,13 +103,14 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
        // mail.setToRecipients(["skipper.jason@gmail.com"])
         mail.setSubject("A Shopping List From SPORK")
         mail.setMessageBody(recipeString, isHTML: true)
-            //(aRecipe?.href)! DOESNT WORK
+        
         present(mail, animated: true)
         } else {
         print("Can not send email")
             }
     }
     
+    // function dismisses the email controller back to the recipe when sent.
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
     {
         controller.dismiss(animated: true)
@@ -125,6 +127,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
+        //number of ingredient objects in a specific section.
         return (shoppingItems[section].ingredients.count)
         
     }
@@ -157,7 +160,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
      return cell
     }
     
-    
+    //This funtion allows you to select the entire cell versus just checking the small box on the left.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -168,7 +171,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     
     //MARK: Creating the SECTION VIEW
-    
+    //Must the heightForHeaderInSection when using the viewForHeaderInSection.
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat
     {
         return 45
