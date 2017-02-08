@@ -37,21 +37,38 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
     func didReceiveRecipeInfo(listOfRecipeInfo: [RecipeInfo])
     {
         //FIXME: need to write code to conform to protocol
-        for aRecipeInfo in listOfRecipeInfo
-        {
+        
             listOfRecipes = listOfRecipeInfo
-            //print("GOT A RECIPE")
-            //print(aRecipeInfo.title)
-            //print(aRecipeInfo.ingredients)
-            //print(aRecipeInfo.href)
-            //print(aRecipeInfo.thumbnail)
-            func reload()
+            if listOfRecipes.count == 0
             {
-                self.collectionView?.reloadData()
-            }
-            DispatchQueue.main.async(execute: reload)
+                showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
+            } else {
+                //data was not loading correclty so creates a function called reload to allow the images to load asyncronuously.
+                func reload()
+                {
+                    self.collectionView?.reloadData()
+                }
+                DispatchQueue.main.async(execute: reload)
         }
     }
+    
+    
+    //Mark: UIAlertController
+    
+    func showAlertWith(title: String, message: String, Style: UIAlertControllerStyle = .alert)
+    {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: Style)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: dismissAlert)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func dismissAlert(sender: UIAlertAction) -> Void
+    {
+       // this function is called in the showWithAlert function to dismiss the alert
+    }
+
 
 
     /*
