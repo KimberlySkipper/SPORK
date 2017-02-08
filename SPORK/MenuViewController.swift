@@ -10,15 +10,18 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+   override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -32,7 +35,7 @@ class MenuViewController: UIViewController {
     {
         if segue.identifier == "ShowShoppingListSegue"
         {
-            segue.destination as! ShoppingListViewController
+           // segue.destination as! ShoppingListViewController
         }
         
         // Pass the selected object to the new view controller.
@@ -43,7 +46,7 @@ class MenuViewController: UIViewController {
         //no code necessary, but can add funtionality if needed.
     }
     
-    @IBAction func logOutButton(_ sender: Any)
+    @IBAction func logOutBarButton(_ sender: UIBarButtonItem)
     {
         GIDSignIn.sharedInstance().signOut()
         AppState.sharedInstance.signedIn = false
@@ -55,7 +58,7 @@ class MenuViewController: UIViewController {
             print ("Error signing out: %@", signOutError)
         }
         //FIXME: change user to available = false
-        self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
 
 

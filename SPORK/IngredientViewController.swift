@@ -126,31 +126,15 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBAction func recipeButtonWasTapped(_ sender: UIButton)
     {
-        if ingredients.count == 0
-        {
+        //if ingredients.count == 0
+        //{
            // showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
-        }
+       // }
         //api = RecipePuppyAPIManager(delegate: RecipeCollectionViewController.self as! RecipePuppyAPIManagerProtocol)
         //api.searchRPFor(listOfIngredients: ingredients)
     
     }
     
-    //Mark: UIAlertController
-    
-   /* func showAlertWith(title: String, message: String, Style: UIAlertControllerStyle = .alert)
-    {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: Style)
-        
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: dismissAlert)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    func dismissAlert(sender: UIAlertAction) -> Void
-    {
-        navigationController?.popViewController(animated: true)
-    }
-*/
     
     // MARK: - Navigation
 

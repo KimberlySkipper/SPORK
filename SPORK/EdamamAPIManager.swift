@@ -31,7 +31,8 @@
         //Store the API Key in a plist.
         //https://newfivefour.com/index.3.html
         var APIKey: String?
-        if let path = Bundle.main.path(forResource: "APIKey", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "APIKey", ofType: "plist")
+        {
             let dictRoot = NSDictionary(contentsOfFile: path)
             if let dict = dictRoot {
                 APIKey = (dict["APIKey"] as! String)

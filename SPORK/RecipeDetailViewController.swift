@@ -22,7 +22,6 @@ class RecipeDetailViewController: UIViewController,UITableViewDelegate, UITableV
     
     var myRecipe: RecipeInfo?
     var ingredientsFromAPI: [Ingredient]?
-   // var recipeIngredientList: [String]? = ingredient.componentsSepatedBy String(" ")
     var uiImage: UIImage?
     
     
@@ -33,13 +32,12 @@ class RecipeDetailViewController: UIViewController,UITableViewDelegate, UITableV
         
         recipeNameLabel.text = myRecipe?.title
         recipeImage.image = uiImage
-        
         ingredientsFromAPI = (myRecipe?.ingredients)!
     }
     
     @IBAction func didTapLink(_ sender: UIButton)
     {
-        // fix for craft recipies
+        // fix for kraft recipies
         let kraftFixed = myRecipe?.href.replacingOccurrences(of: "kraftfoods", with: "kraftrecipes")
         if let url = (NSURL(string: (kraftFixed)!) as? URL)
         {
@@ -82,7 +80,6 @@ class RecipeDetailViewController: UIViewController,UITableViewDelegate, UITableV
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        
         myRecipe?.sendToFirebase()
         // Pass the selected object to the new view controller.
     }

@@ -29,7 +29,8 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -38,18 +39,18 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
     {
         //FIXME: need to write code to conform to protocol
         
-            listOfRecipes = listOfRecipeInfo
-            if listOfRecipes.count == 0
-            {
-                showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
-                navigationController?.popViewController(animated: true)
-            } else {
+        listOfRecipes = listOfRecipeInfo
+        if listOfRecipes.count == 0
+        {
+            showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
+            let _ = navigationController?.popViewController(animated: true)
+        } else {
                 //data was not loading correclty so creates a function called reload to allow the images to load asyncronuously.
-                func reload()
-                {
-                    self.collectionView?.reloadData()
-                }
-                DispatchQueue.main.async(execute: reload)
+        func reload()
+            {
+                self.collectionView?.reloadData()
+            }
+            DispatchQueue.main.async(execute: reload)
         }
     }
     
@@ -68,20 +69,9 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
     func dismissAlert(sender: UIAlertAction) -> Void
     {
        // this function is called in the showWithAlert function to dismiss the alert
-         navigationController?.popViewController(animated: true)
+         let _ = navigationController?.popViewController(animated: true)
     }
 
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -135,37 +125,6 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
                 }
         }
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {

@@ -18,10 +18,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var backToRecipesButton: UIButton!
     @IBOutlet weak var emailListButton: UIButton!
     @IBOutlet weak var returnToMenuButton: UIButton!
-    var newMedia: Bool?
+    
     
     var shoppingItems = [RecipeInfo]()
-   // var ingredients = [Ingredient]()
     var recipeNames: [String]?
     var aRecipe: RecipeInfo?
     var fbRefHandle: FIRDatabaseHandle!
@@ -29,17 +28,16 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
 
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         title = "Shopping List"
         configureDatabase()
-        
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -47,22 +45,15 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func configureDatabase()
     {
-        //need to organize the data to look like what I want to return. I want a recipe object
-        
         dbRef = FIRDatabase.database().reference()
         fbRefHandle = dbRef.child("recipes").observe(.childAdded, with: {(snapshot) -> Void in
-            // print(snapshot.value)
-            //must use self. in closure
+            
             let recipe : RecipeInfo? = RecipeInfo.createRecipeInfoWithJSON(snapshot.value as! [String:Any])
             // ignore any partial created objects
             if(recipe != nil){
                 recipe?.key = snapshot.key
-                self.shoppingItems.append(recipe!)
-            //let indexPath = IndexPath(row: self.ingredients.count, section: self.shoppingItems.count - 1)
-            // self.shoppingTableView.insertRows(at: [indexPath], with: .automatic)
-         
-        //    self.shoppingTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-               self.shoppingTableView.reloadData()
+            self.shoppingItems.append(recipe!)
+            self.shoppingTableView.reloadData()
                
             }else{
                 print("WARNING: GOT NIL!")
@@ -73,7 +64,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     //MARK: Email functionality
    // https://www.hackingwithswift.com/example-code/uikit/how-to-send-an-email
-    //The code below was mostly coppied from the website above.  Thank you Paul from Hacking with Swift.
+    //The code below was mostly copied from the website above.  Thank you Paul from Hacking with Swift.
     func sendEmail() {
         if MFMailComposeViewController.canSendMail()
         {
@@ -83,12 +74,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             var recipeString = String()
             for aRecipe in shoppingItems
             {
-                
                 let recipeTitle = aRecipe.title
-                //recipeString.append("</h1><b>\(recipeTitle)</b></h1>")
                 let recipeLink = aRecipe.href
-               // recipeString.append("<a href=\(recipeLink) ></a>")
-                
+               
                 //Use HTML to set title as a link to the recipe in the email.
                 recipeString.append("</h1><b><a href='\(recipeLink)'>\(recipeTitle)</a></b></h1>")
 
@@ -98,7 +86,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     recipeString.append("<ul><li>\(anIngredient.name)</li></ul>")
                     print(recipeString)
                 }
-               
             }
        // mail.setToRecipients(["skipper.jason@gmail.com"])
         mail.setSubject("A Shopping List From SPORK")
@@ -118,7 +105,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     
     //MARK: TableView Data Source
-    
     func numberOfSections(in tableView: UITableView) -> Int
     {
         // number of RecipeInfo Objects
@@ -203,6 +189,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         deleteButton.setImage(#imageLiteral(resourceName: "trashBin3.png"), for: .normal)
         deleteButton.frame = CGRect(x: 330, y: 5, width: 35, height: 35)
         deleteButton.addTarget(self, action: #selector(didPressDelete), for: .touchUpInside)
+        //Used the UIButton property .tag to store the index of a specific button.
         deleteButton.tag = section
         headerView.addSubview(deleteButton)
 
@@ -236,8 +223,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         aRecipe.sendEditToFirebase(ingredientKey: anItem.key!, status: anItem.done)
         //Used this method instead of reloadData() because the image was flashing when checking the box, now it will only effect the cellsin stead ofthe section.
         shoppingTableView.reloadRows(at: [indexPath!], with: .middle)
-        //shoppingTableView.reloadData()
- 
     }
     
     func didPressDelete(_ sender: UIButton)
@@ -258,51 +243,4 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         self.performSegue(withIdentifier: "ShowMapSegue", sender: UIBarButtonItem())
     }
     
-    
-    
-    //MARK: Editing Cells
-    
-    // Override to support conditional editing of the table view.
-   /*func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return false
-    }
-    
-   // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
-    {
-        if editingStyle == .delete
-        {
-           //var aRecipe = shoppingItems[indexPath.row]
-            shoppingItems.remove(at: indexPath.row)
-           // shoppingTableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-
-    }*/
-    
-    
-       /* if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            myPosts?.removeAtIndex(indexPath.section - 1)
-            profileTableView.beginUpdates()
-            let indexSet = NSMutableIndexSet()
-            indexSet.addIndex(indexPath.section - 1)
-            profileTableView.deleteSections(indexSet, withRowAnimation: UITableViewRowAnimation.Automatic)
-            // profileTableView.deleteRowsAtIndexPaths([indexPath],  withRowAnimation: UITableViewRowAnimation.Automatic)
-            profileTableView.endUpdates()
-     
-        }
-    }
-    
- 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    */
 }//end class

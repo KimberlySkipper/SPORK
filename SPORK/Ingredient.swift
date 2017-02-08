@@ -42,6 +42,4 @@ class Ingredient
         
     }
     
-    
-
 }// end class

@@ -59,7 +59,7 @@ class GroceryStoreViewController: UIViewController, CLLocationManagerDelegate
             
            // http://www.techotopia.com/index.php/Working_with_MapKit_Local_Search_in_iOS_8_and_Swift
             //Most of the code below as copied directly from the website above.  Thank you techopia.com.
-            
+            //Searching for grocery locations.
             let request = MKLocalSearchRequest()
             request.naturalLanguageQuery = "Groceries"
             request.region = mapView.region
@@ -70,21 +70,22 @@ class GroceryStoreViewController: UIViewController, CLLocationManagerDelegate
                 
                 if error != nil {
                     print("Error occured in search:\(error!.localizedDescription)")
-                } else if response!.mapItems.count == 0 {
+                } else if response!.mapItems.count == 0
+                {
                     print("No matches found")
                 } else {
                     print("Matches found")
                     
-                    for item in response!.mapItems {
+                    for item in response!.mapItems
+                    {
                         print("Name = \(item.name)")
                         print("Phone = \(item.phoneNumber)")
-                        
+                        //Creating pins for grocery locations.
                         let annotation = MKPointAnnotation()
                         annotation.coordinate = item.placemark.coordinate
                         annotation.title = item.name
+                        annotation.subtitle = item.phoneNumber
                         self.mapView.addAnnotation(annotation)
-                        
-                        
                     }
                     
                 }
