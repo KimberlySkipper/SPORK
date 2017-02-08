@@ -48,6 +48,8 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
      {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath) as! IngredientTableViewCell
+        //assigned textfield.text to empty string because reusable cells were coming back prefilled with information.
+        cell.ingredientTextField?.text = ""
         let aGroceryItem = ingredients[indexPath.row]
         if aGroceryItem.name.isEmpty
         {
@@ -82,7 +84,7 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.ingredientTextField?.resignFirstResponder()
             
         } else {
-            showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
+          //  showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -126,8 +128,8 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
     {
         if ingredients.count == 0
         {
-            showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
-        } 
+           // showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
+        }
         //api = RecipePuppyAPIManager(delegate: RecipeCollectionViewController.self as! RecipePuppyAPIManagerProtocol)
         //api.searchRPFor(listOfIngredients: ingredients)
     
@@ -135,7 +137,7 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
     
     //Mark: UIAlertController
     
-    func showAlertWith(title: String, message: String, Style: UIAlertControllerStyle = .alert)
+   /* func showAlertWith(title: String, message: String, Style: UIAlertControllerStyle = .alert)
     {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: Style)
         
@@ -146,9 +148,9 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func dismissAlert(sender: UIAlertAction) -> Void
     {
-        
+        navigationController?.popViewController(animated: true)
     }
-
+*/
     
     // MARK: - Navigation
 
@@ -157,13 +159,11 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
     {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "ShoppingListSegue"
+        if segue.identifier != "ShoppingListSegue"
         {
-            let destinationVC = ShoppingListViewController.self
-        } else {
-        let controller = segue.destination as! RecipeCollectionViewController
-        api = EdamamAPIManager(delegate: controller as EdamamAPIManagerProtocol)
-        api.searchRPFor(listOfIngredients: ingredients)
+            let controller = segue.destination as! RecipeCollectionViewController
+            api = EdamamAPIManager(delegate: controller as EdamamAPIManagerProtocol)
+            api.searchRPFor(listOfIngredients: ingredients)
         }
     }
     

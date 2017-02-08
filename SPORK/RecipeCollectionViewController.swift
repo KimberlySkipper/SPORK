@@ -42,6 +42,7 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
             if listOfRecipes.count == 0
             {
                 showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
+                navigationController?.popViewController(animated: true)
             } else {
                 //data was not loading correclty so creates a function called reload to allow the images to load asyncronuously.
                 func reload()
@@ -67,6 +68,7 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
     func dismissAlert(sender: UIAlertAction) -> Void
     {
        // this function is called in the showWithAlert function to dismiss the alert
+         navigationController?.popViewController(animated: true)
     }
 
 
