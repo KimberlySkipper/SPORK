@@ -43,7 +43,7 @@ class RecipeDetailViewController: UIViewController,UITableViewDelegate, UITableV
         {
             print(myRecipe?.href ?? "OH NO!")
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil )}
-        }
+    }
     
 
     override func didReceiveMemoryWarning()
@@ -76,11 +76,10 @@ class RecipeDetailViewController: UIViewController,UITableViewDelegate, UITableV
     
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
+        //send Recipe Info object to firebase
         myRecipe?.sendToFirebase()
-        
     }
 
 

@@ -80,6 +80,8 @@ class IngredientViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.ingredientTextField?.resignFirstResponder()
         }
     }
+    
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         var shouldReturn = false

@@ -17,11 +17,9 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
     var listOfRecipes = [RecipeInfo]()
      var api: EdamamAPIManager!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
     override func didReceiveMemoryWarning()
@@ -37,7 +35,7 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
             showAlertWith(title: "Ingredients Invalid", message: "These ingredients do not return a recipe please enter new ingredients.")
             let _ = navigationController?.popViewController(animated: true)
         } else {
-                //data was not loading correclty so creates a function called reload to allow the images to load asyncronuously.
+        //data was not loading correclty so creates a function called reload to allow the images to load asyncronuously.
         func reload()
             {
                 self.collectionView?.reloadData()
@@ -129,7 +127,6 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
             detailVC.myRecipe = oneRecipe
             detailVC.uiImage = cell.recipeThumbnail.image
         }
-        
     }
 
 }//end class
