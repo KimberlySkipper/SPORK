@@ -35,10 +35,7 @@ class MenuViewController: UIViewController
     {
         if segue.identifier == "ShowShoppingListSegue"
         {
-           // segue.destination as! ShoppingListViewController
         }
-        
-        // Pass the selected object to the new view controller.
     }
 
     @IBAction func fromShoppingListToMenu(segue: UIStoryboardSegue)

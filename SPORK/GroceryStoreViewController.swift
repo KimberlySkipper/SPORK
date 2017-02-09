@@ -23,7 +23,7 @@ class GroceryStoreViewController: UIViewController, CLLocationManagerDelegate
     {
         super.viewDidLoad()
         
-        title = "Local Grocery Stores"
+        title = "Grocery Stores"
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -32,7 +32,6 @@ class GroceryStoreViewController: UIViewController, CLLocationManagerDelegate
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Location services

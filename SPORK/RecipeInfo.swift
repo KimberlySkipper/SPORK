@@ -42,7 +42,7 @@ class RecipeInfo
         
     }
     // pasrse data coming back from Firebase
-    static func createRecipeInfoWithJSON(_ dictionary: [String: Any]) -> RecipeInfo?
+    static func createRecipeInfoWithJSONFromFB(_ dictionary: [String: Any]) -> RecipeInfo?
     {
         var recipeInfo: RecipeInfo?
     

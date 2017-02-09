@@ -20,25 +20,17 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func didReceiveRecipeInfo(listOfRecipeInfo: [RecipeInfo])
     {
-        //FIXME: need to write code to conform to protocol
-        
         listOfRecipes = listOfRecipeInfo
         if listOfRecipes.count == 0
         {
@@ -77,14 +69,12 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int
     {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
-        // #warning Incomplete implementation, return the number of items
         return listOfRecipes.count
     }
 
@@ -92,8 +82,9 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! RecipeImageCell
         cell.backgroundColor = UIColor.white
-        
+        // load image
         RecipeCollectionViewController.load_image(urlString: listOfRecipes[indexPath.row].image,imageView: cell.recipeThumbnail)
+        //set title
         cell.recipeTitleLabel.text = listOfRecipes[indexPath.row].title
        
         // Configure the cell
@@ -141,4 +132,4 @@ class RecipeCollectionViewController: UICollectionViewController, EdamamAPIManag
         
     }
 
-}
+}//end class

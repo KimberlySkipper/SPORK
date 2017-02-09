@@ -24,8 +24,6 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate
         googleSignInButton.style = GIDSignInButtonStyle.standard
         googleSignInButton.colorScheme = GIDSignInButtonColorScheme.light
         
-        
-        
         title = "Log In or Sign Up"
         
     }

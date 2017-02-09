@@ -71,7 +71,6 @@ class RecipeDetailViewController: UIViewController,UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath)
         cell.textLabel?.text = ingredientsFromAPI?[indexPath.row].name
         return cell
-        
     }
 
     
@@ -81,7 +80,7 @@ class RecipeDetailViewController: UIViewController,UITableViewDelegate, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         myRecipe?.sendToFirebase()
-        // Pass the selected object to the new view controller.
+        
     }
 
 

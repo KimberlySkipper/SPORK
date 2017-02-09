@@ -48,15 +48,12 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         dbRef = FIRDatabase.database().reference()
         fbRefHandle = dbRef.child("recipes").observe(.childAdded, with: {(snapshot) -> Void in
             
-            let recipe : RecipeInfo? = RecipeInfo.createRecipeInfoWithJSON(snapshot.value as! [String:Any])
-            // ignore any partial created objects
+            let recipe : RecipeInfo? = RecipeInfo.createRecipeInfoWithJSONFromFB(snapshot.value as! [String:Any])
             if(recipe != nil){
                 recipe?.key = snapshot.key
             self.shoppingItems.append(recipe!)
             self.shoppingTableView.reloadData()
                
-            }else{
-                print("WARNING: GOT NIL!")
             }
         })
         
@@ -87,14 +84,13 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     print(recipeString)
                 }
             }
-       // mail.setToRecipients(["skipper.jason@gmail.com"])
         mail.setSubject("A Shopping List From SPORK")
         mail.setMessageBody(recipeString, isHTML: true)
         
         present(mail, animated: true)
         } else {
         print("Can not send email")
-            }
+        }
     }
     
     // function dismisses the email controller back to the recipe when sent.

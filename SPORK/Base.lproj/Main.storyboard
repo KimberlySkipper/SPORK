@@ -371,7 +371,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hOL-Vf-ydm">
-                                <rect key="frame" x="0.0" y="337" width="375" height="286"/>
+                                <rect key="frame" x="0.0" y="337" width="375" height="330"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IngredientCell" textLabel="dfM-TZ-aFE" style="IBUITableViewCellStyleDefault" id="2TA-hm-Bor">
@@ -647,7 +647,7 @@
         <image name="uncheckedBox" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E2A-VK-JFK"/>
+        <segue reference="l6H-Aw-ssR"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
