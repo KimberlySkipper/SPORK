@@ -21,16 +21,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iPhone 7.png" translatesAutoresizingMaskIntoConstraints="NO" id="klf-v3-IiG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartFoodImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="htp-9K-eSE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="totalSporkIcon Copy 3.png" translatesAutoresizingMaskIntoConstraints="NO" id="mQX-D8-IXL">
+                                <rect key="frame" x="64" y="195" width="199" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="klf-v3-IiG" secondAttribute="bottom" id="0HH-LR-k7c"/>
-                            <constraint firstItem="klf-v3-IiG" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="J2E-oD-G0l"/>
-                            <constraint firstAttribute="trailing" secondItem="klf-v3-IiG" secondAttribute="trailing" id="QqK-Mj-KUN"/>
-                            <constraint firstItem="klf-v3-IiG" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="WqA-2e-pcY"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="htp-9K-eSE" secondAttribute="bottom" id="Ar5-dY-LUm"/>
+                            <constraint firstItem="htp-9K-eSE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Chr-TM-3JL"/>
+                            <constraint firstItem="htp-9K-eSE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="LUM-zz-7sG"/>
+                            <constraint firstAttribute="trailing" secondItem="htp-9K-eSE" secondAttribute="trailing" id="Lhh-Sv-4uU"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -40,6 +44,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iPhone 7.png" width="375" height="667"/>
+        <image name="heartFoodImage.jpg" width="488" height="354"/>
+        <image name="totalSporkIcon Copy 3.png" width="171" height="310"/>
     </resources>
 </document>

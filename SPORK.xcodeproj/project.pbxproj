@@ -24,7 +24,8 @@
 		2C85D6981E4A16B300335EB4 /* GroceryStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C85D6971E4A16B300335EB4 /* GroceryStoreViewController.swift */; };
 		2CA5D8331E4BC5C4000D6918 /* logo_edamam_640-300x146.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D8321E4BC5C4000D6918 /* logo_edamam_640-300x146.jpg */; };
 		2CA5D8351E4BD36E000D6918 /* 120 - iPhone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D8341E4BD36E000D6918 /* 120 - iPhone@3x.png */; };
-		2CA5D8371E4BD43F000D6918 /* iPhone 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D8361E4BD43F000D6918 /* iPhone 7.png */; };
+		2CA5D83C1E4D3939000D6918 /* heartFoodImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D83B1E4D3939000D6918 /* heartFoodImage.jpg */; };
+		2CA5D8421E4D3E97000D6918 /* totalSporkIcon Copy 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D8411E4D3E97000D6918 /* totalSporkIcon Copy 3.png */; };
 		2CF2A7A91E36D3BF00A8C5DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2A7A81E36D3BF00A8C5DC /* AppDelegate.swift */; };
 		2CF2A7AE1E36D3BF00A8C5DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF2A7AC1E36D3BF00A8C5DC /* Main.storyboard */; };
 		2CF2A7B11E36D3BF00A8C5DC /* SPORK.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CF2A7AF1E36D3BF00A8C5DC /* SPORK.xcdatamodeld */; };
@@ -55,7 +56,8 @@
 		2C85D6971E4A16B300335EB4 /* GroceryStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryStoreViewController.swift; sourceTree = "<group>"; };
 		2CA5D8321E4BC5C4000D6918 /* logo_edamam_640-300x146.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "logo_edamam_640-300x146.jpg"; sourceTree = "<group>"; };
 		2CA5D8341E4BD36E000D6918 /* 120 - iPhone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120 - iPhone@3x.png"; sourceTree = "<group>"; };
-		2CA5D8361E4BD43F000D6918 /* iPhone 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone 7.png"; sourceTree = "<group>"; };
+		2CA5D83B1E4D3939000D6918 /* heartFoodImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = heartFoodImage.jpg; sourceTree = "<group>"; };
+		2CA5D8411E4D3E97000D6918 /* totalSporkIcon Copy 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "totalSporkIcon Copy 3.png"; sourceTree = "<group>"; };
 		2CF2A7A51E36D3BF00A8C5DC /* SPORK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPORK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF2A7A81E36D3BF00A8C5DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF2A7AD1E36D3BF00A8C5DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,7 +123,8 @@
 			children = (
 				2C382AFE1E462BBB00B578A9 /* trashBin3.png */,
 				2CA5D8321E4BC5C4000D6918 /* logo_edamam_640-300x146.jpg */,
-				2CA5D8361E4BD43F000D6918 /* iPhone 7.png */,
+				2CA5D83B1E4D3939000D6918 /* heartFoodImage.jpg */,
+				2CA5D8411E4D3E97000D6918 /* totalSporkIcon Copy 3.png */,
 				2CF2A7BD1E36D49E00A8C5DC /* SoupImage.JPG */,
 				2CA5D8341E4BD36E000D6918 /* 120 - iPhone@3x.png */,
 				2C44947D1E4AB9AD00FFB38B /* pinIcon.png */,
@@ -249,12 +252,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA5D8421E4D3E97000D6918 /* totalSporkIcon Copy 3.png in Resources */,
 				2CA5D8331E4BC5C4000D6918 /* logo_edamam_640-300x146.jpg in Resources */,
 				2CF2A7B61E36D3BF00A8C5DC /* LaunchScreen.storyboard in Resources */,
+				2CA5D83C1E4D3939000D6918 /* heartFoodImage.jpg in Resources */,
 				2CF2A7B31E36D3BF00A8C5DC /* Assets.xcassets in Resources */,
 				2CF2A7C01E36DA8C00A8C5DC /* GoogleService-Info.plist in Resources */,
 				2CF2A7BE1E36D49E00A8C5DC /* SoupImage.JPG in Resources */,
-				2CA5D8371E4BD43F000D6918 /* iPhone 7.png in Resources */,
 				2C5307671E48118100C10CAB /* APIKey.plist in Resources */,
 				2CA5D8351E4BD36E000D6918 /* 120 - iPhone@3x.png in Resources */,
 				2C382AFF1E462BBB00B578A9 /* trashBin3.png in Resources */,

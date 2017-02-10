@@ -40,7 +40,7 @@
             }
         }
         
-        let urlPath = "https://api.edamam.com/search?app_id=4f4a0765&app_key=\(APIKey!)&q=\(apiData)"
+        let urlPath = "https://api.edamam.com/search?app_id=4f4a0765&app_key=\(APIKey!)&q=\(apiData)&from=0&to=20"
         print(urlPath)
         let url = URL(string: urlPath)
         let session = URLSession.shared

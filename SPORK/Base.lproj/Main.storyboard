@@ -200,7 +200,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpA-sL-vtz">
-                                <rect key="frame" x="20" y="617" width="149.5" height="30"/>
+                                <rect key="frame" x="10" y="627" width="172.5" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Search Recipes">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -211,7 +211,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRh-9g-9YS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="545"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="555"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="IngredientCell" id="f73-r1-EGs" customClass="IngredientTableViewCell" customModule="SPORK" customModuleProvider="target">
@@ -250,7 +250,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-hd-OLx">
-                                <rect key="frame" x="189.5" y="617" width="149.5" height="30"/>
+                                <rect key="frame" x="192.5" y="627" width="172.5" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Shopping List"/>
                                 <connections>
@@ -260,17 +260,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.18228" green="0.20999999999999999" blue="0.19812660000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="HpA-sL-vtz" firstAttribute="centerY" secondItem="UPq-hd-OLx" secondAttribute="centerY" id="59o-Zr-BCt"/>
-                            <constraint firstItem="0By-y2-OFL" firstAttribute="top" secondItem="UPq-hd-OLx" secondAttribute="bottom" constant="20" id="8Fh-QM-WqZ"/>
-                            <constraint firstItem="HpA-sL-vtz" firstAttribute="width" secondItem="UPq-hd-OLx" secondAttribute="width" id="Bxg-eU-lJZ"/>
-                            <constraint firstItem="UPq-hd-OLx" firstAttribute="top" secondItem="MRh-9g-9YS" secondAttribute="bottom" constant="8" id="PPy-YP-clX"/>
-                            <constraint firstItem="HpA-sL-vtz" firstAttribute="height" secondItem="UPq-hd-OLx" secondAttribute="height" id="QKJ-xG-Iqg"/>
+                            <constraint firstItem="UPq-hd-OLx" firstAttribute="leading" secondItem="HpA-sL-vtz" secondAttribute="trailing" constant="10" id="Ko8-vK-jmj"/>
+                            <constraint firstItem="UPq-hd-OLx" firstAttribute="centerY" secondItem="HpA-sL-vtz" secondAttribute="centerY" id="OSa-Ml-I6t"/>
+                            <constraint firstItem="UPq-hd-OLx" firstAttribute="width" secondItem="HpA-sL-vtz" secondAttribute="width" id="V6v-tJ-9GS"/>
+                            <constraint firstAttribute="trailing" secondItem="UPq-hd-OLx" secondAttribute="trailing" constant="10" id="WWS-Lh-zE2"/>
                             <constraint firstItem="MRh-9g-9YS" firstAttribute="leading" secondItem="yNZ-TI-FzM" secondAttribute="leading" id="Z6o-sz-gQp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UPq-hd-OLx" secondAttribute="trailing" constant="20" id="fQT-2M-JTi"/>
-                            <constraint firstItem="HpA-sL-vtz" firstAttribute="leading" secondItem="yNZ-TI-FzM" secondAttribute="leading" constant="20" id="i4Y-RG-Wiu"/>
+                            <constraint firstItem="HpA-sL-vtz" firstAttribute="top" secondItem="MRh-9g-9YS" secondAttribute="bottom" constant="8" id="gKn-Sk-hCT"/>
+                            <constraint firstItem="HpA-sL-vtz" firstAttribute="leading" secondItem="yNZ-TI-FzM" secondAttribute="leading" constant="10" id="kWB-1G-i7J"/>
+                            <constraint firstItem="0By-y2-OFL" firstAttribute="top" secondItem="HpA-sL-vtz" secondAttribute="bottom" constant="10" id="nXr-iM-VnD"/>
                             <constraint firstItem="MRh-9g-9YS" firstAttribute="top" secondItem="YWH-0y-vZd" secondAttribute="bottom" id="pA4-CZ-xUr"/>
                             <constraint firstAttribute="trailing" secondItem="MRh-9g-9YS" secondAttribute="trailing" id="sKC-xN-g5C"/>
-                            <constraint firstItem="UPq-hd-OLx" firstAttribute="leading" secondItem="HpA-sL-vtz" secondAttribute="trailing" constant="20" id="wdd-VN-0rF"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -479,7 +478,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PR-DH-TRc">
-                                <rect key="frame" x="20" y="617" width="157.5" height="30"/>
+                                <rect key="frame" x="10" y="627" width="172.5" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Home">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -541,7 +540,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxo-Qg-hgG">
-                                <rect key="frame" x="197.5" y="617" width="157.5" height="30"/>
+                                <rect key="frame" x="192.5" y="627" width="172.5" height="30"/>
                                 <color key="backgroundColor" red="0.42334633329999999" green="0.77300000000000002" blue="0.31692999999999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Email">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -553,18 +552,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.18228" green="0.20999999999999999" blue="0.19812660000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ZDS-Pj-q2L" firstAttribute="top" secondItem="hxo-Qg-hgG" secondAttribute="bottom" constant="20" id="5fi-OD-HFi"/>
-                            <constraint firstItem="9PR-DH-TRc" firstAttribute="centerY" secondItem="hxo-Qg-hgG" secondAttribute="centerY" id="HS9-gQ-xCE"/>
-                            <constraint firstItem="9PR-DH-TRc" firstAttribute="top" secondItem="6cb-EV-MLb" secondAttribute="bottom" constant="10" id="LVf-RD-Ej0"/>
-                            <constraint firstItem="hxo-Qg-hgG" firstAttribute="leading" secondItem="9PR-DH-TRc" secondAttribute="trailing" constant="20" id="Njp-9l-BK7"/>
-                            <constraint firstItem="ZDS-Pj-q2L" firstAttribute="top" secondItem="9PR-DH-TRc" secondAttribute="bottom" constant="20" id="Nqg-4T-E5u"/>
-                            <constraint firstItem="9PR-DH-TRc" firstAttribute="width" secondItem="hxo-Qg-hgG" secondAttribute="width" id="an1-fD-nLD"/>
+                            <constraint firstItem="ZDS-Pj-q2L" firstAttribute="top" secondItem="hxo-Qg-hgG" secondAttribute="bottom" constant="10" id="Xgo-da-FhM"/>
+                            <constraint firstItem="hxo-Qg-hgG" firstAttribute="leading" secondItem="9PR-DH-TRc" secondAttribute="trailing" constant="10" id="cHC-rb-ge4"/>
+                            <constraint firstItem="ZDS-Pj-q2L" firstAttribute="top" secondItem="9PR-DH-TRc" secondAttribute="bottom" constant="10" id="gSE-9B-y0O"/>
+                            <constraint firstAttribute="trailing" secondItem="hxo-Qg-hgG" secondAttribute="trailing" constant="10" id="gYJ-Xd-lhy"/>
                             <constraint firstItem="6cb-EV-MLb" firstAttribute="top" secondItem="DNX-hv-dMJ" secondAttribute="bottom" id="gqj-ca-sdH"/>
-                            <constraint firstAttribute="trailing" secondItem="hxo-Qg-hgG" secondAttribute="trailing" constant="20" id="igf-rQ-OXS"/>
-                            <constraint firstItem="9PR-DH-TRc" firstAttribute="leading" secondItem="bLw-6R-WSZ" secondAttribute="leading" constant="20" id="ij9-38-4Be"/>
+                            <constraint firstItem="hxo-Qg-hgG" firstAttribute="width" secondItem="9PR-DH-TRc" secondAttribute="width" id="gve-AP-B0A"/>
                             <constraint firstItem="6cb-EV-MLb" firstAttribute="leading" secondItem="bLw-6R-WSZ" secondAttribute="leading" id="mfQ-hm-Z6Q"/>
+                            <constraint firstItem="9PR-DH-TRc" firstAttribute="top" secondItem="6cb-EV-MLb" secondAttribute="bottom" constant="20" id="oF2-0K-N67"/>
+                            <constraint firstItem="9PR-DH-TRc" firstAttribute="leading" secondItem="bLw-6R-WSZ" secondAttribute="leading" constant="10" id="qJa-dm-3MG"/>
                             <constraint firstAttribute="trailing" secondItem="6cb-EV-MLb" secondAttribute="trailing" id="uGw-su-3Ct"/>
-                            <constraint firstItem="9PR-DH-TRc" firstAttribute="height" secondItem="hxo-Qg-hgG" secondAttribute="height" id="xgt-wQ-dlo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hmA-nn-bNC">
@@ -647,7 +644,7 @@
         <image name="uncheckedBox" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l6H-Aw-ssR"/>
+        <segue reference="E2A-VK-JFK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
