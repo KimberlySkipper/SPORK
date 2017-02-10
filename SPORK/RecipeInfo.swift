@@ -17,7 +17,7 @@ class RecipeInfo
     let ingredients: [Ingredient]
     let image: String
     var key: String?
-    var gID: Int?
+    var gID: String?
     
     var dbRef: FIRDatabaseReference!
     
@@ -32,7 +32,7 @@ class RecipeInfo
     
     }
     
-    // we use this initializer to init on API call
+    // used to create recipe infos from return on API
     init(recipeTitle: String, recipeUrl: String, recipeIngredients: [String], recipeImage: String)
     {
         self.title = recipeTitle
@@ -41,7 +41,7 @@ class RecipeInfo
         self.ingredients = Ingredient.changeArrayOfStringsToArrayOfIngredientObjects(oldStringArray: recipeIngredients)
         
     }
-    // pasrse data coming back from Firebase
+    // parse data coming back from Firebase
     static func createRecipeInfoWithJSONFromFB(_ dictionary: [String: Any]) -> RecipeInfo?
     {
         var recipeInfo: RecipeInfo?
@@ -49,6 +49,7 @@ class RecipeInfo
                 let recipeTitle = dictionary["title"] as? String ?? ""
                 let recipeUrl = dictionary["href"] as? String ?? ""
                 let recipeImage = dictionary["image"] as? String ?? ""
+                let gID = dictionary["gID"] as? String ?? ""
         
                 // dont create a recipie info if it has no ingredients yet
                 if let childDictionary = dictionary["ingredients"] as! [String: Any]?
@@ -65,6 +66,7 @@ class RecipeInfo
                             listOfIngredients.append(anIngredient)
                         }
                         recipeInfo = RecipeInfo(recipeTitle: recipeTitle,recipeUrl: recipeUrl, recipeIngredients: listOfIngredients, recipeImage: recipeImage)
+                        recipeInfo?.gID = gID
                     }
                 
             return recipeInfo
@@ -77,7 +79,7 @@ class RecipeInfo
         dbRef = FIRDatabase.database().reference()
        // create a dictionary of dictionaries
         let recipeData: [String: Any] =
-            ["gID": FIRGoogleAuthProviderID,
+            ["gID": AppState.sharedInstance.userID!,
              "title": title,
              "href": href,
              "image": image]

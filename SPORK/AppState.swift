@@ -14,6 +14,7 @@ class AppState
     
     var signedIn = false
     var displayName: String?
+    var userID: String?
    
 }
 

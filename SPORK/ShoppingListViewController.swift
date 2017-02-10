@@ -49,10 +49,11 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         fbRefHandle = dbRef.child("recipes").observe(.childAdded, with: {(snapshot) -> Void in
             
             let recipe : RecipeInfo? = RecipeInfo.createRecipeInfoWithJSONFromFB(snapshot.value as! [String:Any])
-            if(recipe != nil){
+            if(recipe != nil && AppState.sharedInstance.userID == recipe?.gID)
+            {
                 recipe?.key = snapshot.key
-            self.shoppingItems.append(recipe!)
-            self.shoppingTableView.reloadData()
+                self.shoppingItems.append(recipe!)
+                self.shoppingTableView.reloadData()
                
             }
         })
@@ -179,8 +180,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         //create delete button
         
         let deleteButton = UIButton()
-        //removed auto resixeing to see if it fixed the icon traveling bug
-         //deleteButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.isEnabled = true
         deleteButton.setImage(#imageLiteral(resourceName: "trashBin3.png"), for: .normal)
         deleteButton.frame = CGRect(x: 330, y: 5, width: 35, height: 35)

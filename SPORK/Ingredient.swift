@@ -27,7 +27,7 @@ class Ingredient
         self.name = ingredient
         self.done = false
     }
-    // make function to change the string array(from ingrediants in the RecipeInfo object) to object array
+    // Changes the array of strings, from the API, to an array of Ingredient Objects.
     static func changeArrayOfStringsToArrayOfIngredientObjects(oldStringArray:[String]) -> [Ingredient]
     {
         var ingredientArray = [Ingredient]()
